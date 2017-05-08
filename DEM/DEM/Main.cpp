@@ -3,6 +3,7 @@
 
 int main()
 {
+	std::cout << "Master branch!" << std::endl;
 
 	sf::RenderWindow window(sf::VideoMode(800, 800), "SFML works!");
 	sf::CircleShape shape(100.f);
