@@ -21,9 +21,11 @@
   <ItemGroup>
     <ClCompile Include="game.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FF78C819-F024-4D73-A9DD-09043BEDB7A6}</ProjectGuid>
