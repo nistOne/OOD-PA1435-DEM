@@ -1,8 +1,8 @@
 #pragma once
-class game
+class Game
 {
 public:
-	game();
-	~game();
+	Game();
+	~Game();
 };
 
