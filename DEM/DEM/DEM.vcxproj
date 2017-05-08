@@ -24,12 +24,8 @@
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <ClInclude Include="Game.h" />
-=======
-    <ClInclude Include="game.h" />
     <ClInclude Include="Player.h" />
->>>>>>> 4cde65cc8cf04b9ab9af5a40da0aa266dd0930af
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FF78C819-F024-4D73-A9DD-09043BEDB7A6}</ProjectGuid>
