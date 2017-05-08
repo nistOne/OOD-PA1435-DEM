@@ -3,8 +3,7 @@
 
 int main()
 {
-	std::cout << "Yolo i bajs i frillen" << std::endl;
-	std::cout << "Nemen Daaavid daaaa! ;)" << std::endl;
+	std::cout << "Davids branch!" << std::endl;
 
 	sf::RenderWindow window(sf::VideoMode(800, 800), "SFML works!");
 	sf::CircleShape shape(100.f);
