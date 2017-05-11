@@ -1,0 +1,19 @@
+#pragma once
+#include <SFML/Graphics.hpp>
+#include <string>
+class Entity
+{
+private:
+	float hitPoint;
+	float strenght;
+	string name;
+	sf::Sprite sprite;
+	sf::Vector2f pos;
+public:
+	Entity();
+	~Entity();
+	sf::Vector2f getPos();
+	float getStrength();
+	bool update();
+	void move() = 0;
+};
