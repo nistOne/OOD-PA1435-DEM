@@ -16,24 +16,33 @@ private:
 	class LogNode
 	{
 	public:
-		LogNode(string data) { string data = data; this->next = nullptr; }
+		LogNode(LogEvent logEvent, LogNode * next = nullptr, LogNode * prev = nullptr)
+		{
+			this->data = logEvent;
+			this->next = next;
+			this->prev = prev;
+		}
 		~LogNode() { delete this->next; }
 
 		LogNode * next;
+		LogNode * prev;
 
 		LogEvent data;
 	};
 
-	LogNode * first;
-	LogNode * walker;
-	LogNode * last;
+	LogNode * m_first;
+	LogNode * m_walker;
+	LogNode * m_last;
+
+	int m_capacity;
+	int m_nrOfEvents;
 
 public:
 
 	Log(int maxLogEvents);
 	~Log();
 
-	void Push()
+	void Push(LogEvent logEvent);
 
 	LogEvent GetNext();
 	void Reset();
