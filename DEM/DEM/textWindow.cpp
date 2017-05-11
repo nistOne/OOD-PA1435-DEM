@@ -10,3 +10,15 @@ textWindow::~textWindow()
 {
 	delete this->m_log;
 }
+
+bool textWindow::render()
+{
+
+}
+
+void textWindow::log_push(string line)
+{
+	LogNode * temp = new LogNode(line);
+
+	temp->next = this->m_log;
+}

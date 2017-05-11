@@ -10,4 +10,5 @@ public:
 	gameWindow();
 	~gameWindow();
 
+	bool render();
 };

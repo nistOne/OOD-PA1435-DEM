@@ -7,12 +7,17 @@ class textWindow : public Window
 {
 private:
 
-	string * m_log;
+	
+
+	LogNode * m_firstLog;
+	LogNode * m_lastLog;
 
 public:
 
 	textWindow(sf::Vector2f size, sf::Vector2f pos, sf::Color color);
 	~textWindow();
 
-	//log_push
+	bool render();
+	
+	void log_push(string line);
 };

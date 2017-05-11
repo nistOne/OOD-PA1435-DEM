@@ -14,5 +14,5 @@ public:
 	Window(sf::Vector2f size, sf::Vector2f pos, sf::Color color);
 	~Window();
 
-	bool update();
+	virtual bool render() = 0;
 };
