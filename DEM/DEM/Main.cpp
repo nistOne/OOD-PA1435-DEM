@@ -13,7 +13,7 @@ int main()
 	int j = 0;
 	for (int i = 0; i < 90; i++)
 	{
-		m_map[i][j] = 35;
+		m_map[i][j] = 32; // 35
 		if (i >= MAPWIDTH - 1)
 		{
 			i = 0;
@@ -24,7 +24,7 @@ int main()
 	}
 
 	srand(time(NULL));
-	int nr_of_rooms = 24 +(rand() % 10144 + 3) % 4;
+	int nr_of_rooms = 8 +(rand() % 10144 + 3) % 4;
 	//int nr_of_rooms_BOT = 2 +(rand() % 10144 + 3) % (MAPWIDTH / 10);
 
 	int roomWidth = 0;
@@ -37,10 +37,10 @@ int main()
 	/// room generator
 	while (roomcounter != nr_of_rooms)
 	{
-		roomWidth = rand() % 5 + 8;
-		roomHeight = rand() % 3 + 5;
+		roomWidth = rand() % 7 + 8;
+		roomHeight = rand() % 4 + 7;
 		roomStartPosX = roomStartPosX + rand() % 5 + 2;
-		Yvariable = rand() % 3 + 1;
+		Yvariable = rand() % 9 + 1;
 		roomStartPosY = roomStartPosY + Yvariable;
 
 		j = roomStartPosY;
@@ -73,16 +73,13 @@ int main()
 		roomStartPosY = roomStartPosY - Yvariable;
 
 		// creates new row when at the far right
-		roomStartPosX += (roomWidth + 2);
+		roomStartPosX += (roomWidth + 6);
 		if ((roomStartPosX + 16 > MAPWIDTH))
 		{
 			roomStartPosX = 0;
-			roomStartPosY += 8 + Yvariable;
+			roomStartPosY += 12 + Yvariable;
 		}
-
-
 		roomcounter++;
-		//roomcounter = nr_of_rooms;
 	}// room generator
 
 
