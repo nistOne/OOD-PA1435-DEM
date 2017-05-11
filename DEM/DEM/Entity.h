@@ -6,7 +6,7 @@ class Entity
 private:
 	float hitPoint;
 	float strenght;
-	string name;
+	std::string name;
 	sf::Sprite sprite;
 	sf::Vector2f pos;
 public:
@@ -15,5 +15,5 @@ public:
 	sf::Vector2f getPos();
 	float getStrength();
 	bool update();
-	void move() = 0;
+	void move()const = 0;
 };
