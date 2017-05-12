@@ -1,23 +1,20 @@
 #pragma once
 #include "Window.h"
+#include "Log.h"
 
 using namespace std;
 
-class textWindow : public Window
+class TextWindow : public Window
 {
 private:
 
-	
-
-	LogNode * m_firstLog;
-	LogNode * m_lastLog;
+	// Edit
+	Log m_log;
 
 public:
 
-	textWindow(sf::Vector2f size, sf::Vector2f pos, sf::Color color);
-	~textWindow();
+	TextWindow();
+	~TextWindow();
 
-	bool render();
-	
-	void log_push(string line);
+	virtual void Render();
 };

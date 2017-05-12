@@ -1,14 +1,14 @@
 #pragma once
 
-class gameWindow
+class GameWindow : public Window
 {
 private:
-
+	// Edit
 
 public:
 
-	gameWindow();
-	~gameWindow();
+	GameWindow();
+	~GameWindow();
 
-	bool render();
+	virtual void Render();
 };

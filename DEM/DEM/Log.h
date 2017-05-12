@@ -39,8 +39,10 @@ private:
 
 public:
 
-	Log(int maxLogEvents);
+	Log();
 	~Log();
+
+	void setCapacity(int capacity);
 
 	void Push(LogEvent logEvent);
 

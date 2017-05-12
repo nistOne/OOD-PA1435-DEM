@@ -1,8 +1,8 @@
 #include "Log.h"
 
-Log::Log(int maxLogEvents)
+Log::Log()
 {
-	this->m_capacity = maxLogEvents;
+	this->m_capacity = 0;
 	this->m_nrOfEvents = 0;
 
 	this->m_first = nullptr;
@@ -14,6 +14,11 @@ Log::~Log()
 {
 	// Recursive delete.
 	delete this->m_first;
+}
+
+void Log::setCapacity(int capacity)
+{
+	this->m_capacity = capacity;
 }
 
 void Log::Push(LogEvent logEvent)

@@ -3,16 +3,20 @@
 
 class Window
 {
-private:
+protected:
 
-	sf::Vector2f m_size;
-	sf::Vector2f m_pos;
-	sf::Color m_color;
+	sf::RectangleShape m_box;
+	sf::Font m_font;
 
 public:
 
-	Window(sf::Vector2f size, sf::Vector2f pos, sf::Color color);
+	Window();
 	~Window();
 
-	virtual bool render() = 0;
+	void Initialize(sf::Vector2f size, sf::Vector2f pos, sf::Color color);
+	
+	void setOutlineColor(sf::Color color);
+	void setOutlineThickness(int thickness);
+	
+	virtual void Render() = 0;
 };

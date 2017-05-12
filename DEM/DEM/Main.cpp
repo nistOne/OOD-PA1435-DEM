@@ -8,18 +8,18 @@ int main()
 {
 	std::cout << "Nists branch!" << std::endl;
 
-	sf::RenderWindow window(sf::VideoMode(1200, 800), "SFML works!");
+	//sf::RenderWindow window(sf::VideoMode(1200, 800), "SFML works!");
 
-	sf::RectangleShape mapBox(sf::Vector2f(800, 800));
-	mapBox.setFillColor(sf::Color::Black);
+	//sf::RectangleShape mapBox(sf::Vector2f(800, 800));
+	//mapBox.setFillColor(sf::Color::Black);
 
 	
 
-	sf::RectangleShape textBox(sf::Vector2f(400, 800));
-	textBox.setPosition(sf::Vector2f(802, 0));
-	textBox.setFillColor(sf::Color(30, 30, 30));
-	textBox.setOutlineColor(sf::Color::White);
-	textBox.setOutlineThickness(2);
+	//sf::RectangleShape textBox(sf::Vector2f(400, 800));
+	//textBox.setPosition(sf::Vector2f(802, 0));
+	//textBox.setFillColor(sf::Color(30, 30, 30));
+	//textBox.setOutlineColor(sf::Color::White);
+	//textBox.setOutlineThickness(2);
 
 	sf::Font font;
 	if (!font.loadFromFile("whitrabt.ttf"))

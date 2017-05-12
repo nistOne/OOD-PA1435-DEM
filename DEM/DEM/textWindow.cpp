@@ -1,24 +1,17 @@
-#include "textWindow.h"
+#include "TextWindow.h"
 
-textWindow::textWindow(sf::Vector2f size, sf::Vector2f pos, sf::Color color) : Window(size, pos, color)
+TextWindow::TextWindow()
 {
-	// Create a chat log, holding 20 rows of text.
-	this->m_log = new string[20];
+	this->m_log.setCapacity(20);
+	this->m_box.setOutlineColor(sf::Color::White);
+	this->m_box.setOutlineThickness(2);
 }
 
-textWindow::~textWindow()
+TextWindow::~TextWindow()
 {
-	delete this->m_log;
 }
 
-bool textWindow::render()
+void TextWindow::Render()
 {
-
-}
-
-void textWindow::log_push(string line)
-{
-	LogNode * temp = new LogNode(line);
-
-	temp->next = this->m_log;
+	// Edit
 }
