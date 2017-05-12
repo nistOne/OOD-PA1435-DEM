@@ -1,4 +1,5 @@
 #pragma once
+#include "Window.h"
 
 class GameWindow : public Window
 {
@@ -10,5 +11,5 @@ public:
 	GameWindow();
 	~GameWindow();
 
-	virtual void Render();
+	virtual void Render(sf::RenderWindow &window);
 };

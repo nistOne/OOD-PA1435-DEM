@@ -1,6 +1,14 @@
 #include "GameWindow.h"
 
-void GameWindow::Render()
+GameWindow::GameWindow()
+{
+}
+
+GameWindow::~GameWindow()
+{
+}
+
+void GameWindow::Render(sf::RenderWindow &window)
 {
 	// Edit
 }

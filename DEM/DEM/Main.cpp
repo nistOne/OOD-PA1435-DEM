@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 
+#include "Graphics.h"
+
 using namespace std;
 
 int main()
@@ -121,27 +123,33 @@ int main()
 	text_chat.setFillColor(sf::Color::White);
 	text_chat.setPosition(815, 50);
 
-	while (window.isOpen())
+	Graphics graphics;
+
+	bool state = true;
+	//while (//window.isOpen()))
+	while(state)
 	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
+		graphics.Render();
+		
+		//sf::Event event;
+		//while (window.pollEvent(event))
+		//{
+		//	if (event.type == sf::Event::Closed)
+		//		window.close();
+		//}
 
-		window.clear();
-
-		// ------------------------------ //
-
-
-		window.draw(mapBox);
-		window.draw(textBox);
-		window.draw(text_map);
-		window.draw(text_chat);
+		//window.clear();
 
 		// ------------------------------ //
-		window.display();
+
+
+		//window.draw(mapBox);
+		//window.draw(textBox);
+		//window.draw(text_map);
+		//window.draw(text_chat);
+
+		// ------------------------------ //
+		//window.display();
 	}
 
 	return 0;

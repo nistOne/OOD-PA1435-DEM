@@ -1,5 +1,8 @@
 #pragma once
 #include "SFML-2.4.2/include/SFML/Graphics.hpp"
+#include <string>
+
+using namespace std;
 
 class Window
 {
@@ -7,6 +10,7 @@ protected:
 
 	sf::RectangleShape m_box;
 	sf::Font m_font;
+	string m_toPrint;
 
 public:
 
@@ -17,6 +21,6 @@ public:
 	
 	void setOutlineColor(sf::Color color);
 	void setOutlineThickness(int thickness);
-	
-	virtual void Render() = 0;
+
+	virtual void Render(sf::RenderWindow &window) = 0;
 };
