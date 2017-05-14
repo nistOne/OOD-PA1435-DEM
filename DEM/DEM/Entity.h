@@ -15,5 +15,5 @@ public:
 	sf::Vector2f getPos();
 	float getStrength();
 	bool update();
-	void move()const = 0;
+	virtual void move()const = 0;
 };
