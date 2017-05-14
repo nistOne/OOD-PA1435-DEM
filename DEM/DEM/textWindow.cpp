@@ -3,8 +3,11 @@
 TextWindow::TextWindow() : Window()
 {
 	this->m_log.setCapacity(20);
-	this->m_box.setOutlineColor(sf::Color::White);
-	this->m_box.setOutlineThickness(2);
+
+	//this->m_box.setOutlineColor(sf::Color::White);
+	//this->m_box.setOutlineThickness(2);
+	setBox_outlineColor(sf::Color::White);
+	setBox_outlineThickness(2);
 }
 
 TextWindow::~TextWindow()
@@ -48,22 +51,36 @@ void TextWindow::testUpdate()
 	tempEvent.msg = "Neat.";
 	this->m_log.Push(tempEvent);*/
 
-	this->m_toPrint = chat;
+	//this->m_text[0].setString(chat);
+	this->m_printString = chat;
 }
 
 void TextWindow::Render(sf::RenderWindow &window)
 {
+	//window.draw(this->m_box);
 	window.draw(this->m_box);
-
-	sf::Text print;
-
+	
+	// Draw won't work with an array sf::Text..
+	sf::Text temp;
 	this->m_font.loadFromFile("whitrabt.ttf");
+	
 
-	print.setFont(this->m_font);
-	print.setString(m_toPrint);
-	print.setCharacterSize(15);
-	print.setFillColor(sf::Color::White);
-	print.setPosition(815, 50);
+	LogEvent msg;
 
-	window.draw(print);
+	
+
+
+	for (int i = 0; i < this->m_nrOfTexts; i++)
+	{
+		this->m_text[i].setFont(this->m_font);
+		this->m_text[i].setString(this->m_printString);
+		this->m_text[i].setCharacterSize(15);
+		this->m_text[i].setFillColor(sf::Color::White);
+		this->m_text[i].setPosition(815, 50);
+
+		temp = this->m_text[i];
+	
+		//window.draw(this->m_text[i]);
+		window.draw(temp);
+	}
 }

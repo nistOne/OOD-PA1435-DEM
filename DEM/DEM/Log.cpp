@@ -40,25 +40,30 @@ void Log::Push(LogEvent logEvent)
 	}
 }
 
-LogEvent Log::GetNext()
+LogEvent Log::GetCurrent()
 {
 	LogEvent returnValue;
 
 	if (this->m_walker == this->m_last)
 	{
 		returnValue.author = "ERROR";
-		returnValue.msg = "ERROR";
+		returnValue.data = "ERROR";
 	}
 	else
 	{
-		this->m_walker = this->m_walker->next;
 		returnValue = this->m_walker->data;
+		this->m_walker = this->m_walker->next;
 	}
 	
 	return returnValue;
 }
 
-void Log::Reset()
+void Log::Reset_front()
 {
 	this->m_walker = this->m_first;
+}
+
+void Log::Reset_back()
+{
+	this->m_walker = this->m_last;
 }

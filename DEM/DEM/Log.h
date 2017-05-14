@@ -6,7 +6,7 @@ using namespace std;
 struct LogEvent
 {
 	string author;
-	string msg;
+	string data;
 };
 
 class Log
@@ -46,6 +46,7 @@ public:
 
 	void Push(LogEvent logEvent);
 
-	LogEvent GetNext();
-	void Reset();
+	LogEvent GetCurrent();
+	void Reset_front();
+	void Reset_back();
 };

@@ -6,6 +6,7 @@ class GameWindow : public Window
 private:
 	// Edit
 
+
 public:
 
 	GameWindow();
