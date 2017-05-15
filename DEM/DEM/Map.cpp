@@ -246,3 +246,14 @@ void Map::Print()
 		}// if
 	}// for
 }
+
+void Map::getMap(char map[MAPWIDTH][MAPHEIGHT])
+{
+	for (int i = 0; i < MAPWIDTH; i++)
+	{
+		for (int j = 0; j < MAPHEIGHT; j++)
+		{
+			map[i][j] = this->m_map[i][j];
+		}
+	}
+}

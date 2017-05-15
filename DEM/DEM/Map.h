@@ -15,6 +15,8 @@ public:
 
 	void GenerateMap();
 	void Print();
+
+	void getMap(char map[MAPWIDTH][MAPHEIGHT]);
 };
 
 #endif // !MAP_HB

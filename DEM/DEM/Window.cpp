@@ -2,9 +2,10 @@
 
 Window::Window()
 {
-	this->m_font.loadFromFile("whitrabt.ttf");
+	//this->m_font.loadFromFile("whitrabt.ttf");
+	this->m_font.loadFromFile("Hack-Regular.ttf");
 	this->m_text.setFont(this->m_font);
-	this->m_text.setCharacterSize(15);
+	this->m_text.setCharacterSize(13);
 	this->m_text.setFillColor(sf::Color::White);
 }
 

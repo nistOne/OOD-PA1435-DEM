@@ -2,25 +2,20 @@
 #include <iostream>
 #include <string>
 
-#include "Map.h"
-
-#include "Graphics.h"
+#include "System.h"
 
 using namespace std;
 
 int main()
 {
-	Map map;
-	map.GenerateMap();
-	map.Print();
 
-	Graphics graphics;
-	std::cout << "Master branch!" << std::endl;
+	System system;
+	system.Run();
 
-	while (true)
+	/*while (true)
 	{
 		graphics.Render();
-	}
+	}*/
 
 	//while (window.isOpen())
 	//{

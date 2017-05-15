@@ -1,13 +1,14 @@
 #pragma once
+#include "Graphics.h"
+#include "Map.h"
 
 class System
 {
 private:
 
 	//EntityHandler entityHandler;
+	Graphics m_graphics;
 	
-	void Menu();
-	bool Update();
 
 public:
 
