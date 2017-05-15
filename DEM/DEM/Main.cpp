@@ -1,13 +1,17 @@
 #include "SFML-2.4.2/include/SFML/Graphics.hpp"
 #include <iostream>
+#include <string>
+
+#include "Graphics.h"
+
+using namespace std;
 
 int main()
 {
+	Graphics graphics;
 	std::cout << "Master branch!" << std::endl;
 
-	sf::RenderWindow window(sf::VideoMode(800, 800), "SFML works!");
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
+	
 
 	while (window.isOpen())
 	{
