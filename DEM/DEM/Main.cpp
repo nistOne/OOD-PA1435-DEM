@@ -11,21 +11,24 @@ int main()
 	Graphics graphics;
 	std::cout << "Master branch!" << std::endl;
 
-	
-
-	while (window.isOpen())
+	while (true)
 	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
-
-		window.clear();
-		window.draw(shape);
-		window.display();
+		graphics.Render();
 	}
+
+	//while (window.isOpen())
+	//{
+	//	sf::Event event;
+	//	while (window.pollEvent(event))
+	//	{
+	//		if (event.type == sf::Event::Closed)
+	//			window.close();
+	//	}
+
+	//	window.clear();
+	//	window.draw(shape);
+	//	window.display();
+	//}
 
 	return 0;
 }
