@@ -1,69 +1,62 @@
 #include "Log.h"
 
+void Log::setNull(int fromIndex)
+{
+	for (int i = fromIndex; i < this->m_capacity; i++)
+	{
+		this->m_events[i] = nullptr;
+	}
+}
+
 Log::Log()
 {
-	this->m_capacity = 0;
+	this->m_capacity = 20;
 	this->m_nrOfEvents = 0;
 
-	this->m_first = nullptr;
-	this->m_walker = nullptr;
-	this->m_last = nullptr;
+	this->m_events = new LogEvent*[this->m_nrOfEvents];
+	this->setNull();
 }
 
 Log::~Log()
 {
-	// Recursive delete.
-	delete this->m_first;
+	for (int i = 0; i < this->m_capacity; i++)
+	{
+		delete this->m_events[i];
+	}
+	
+	delete[]this->m_events;
 }
 
-void Log::setCapacity(int capacity)
+int Log::getCapacity()
 {
-	this->m_capacity = capacity;
+	return this->m_capacity;
+}
+
+int Log::getNrOfElements()
+{
+	return this->m_nrOfEvents;
 }
 
 void Log::Push(LogEvent logEvent)
 {
-	LogNode * temp = new LogNode(logEvent, this->m_first);
-	this->m_first->prev = temp;
-	this->m_first = temp;
+	LogEvent * newEvent = new LogEvent(logEvent);
 
-	if (this->m_nrOfEvents == 0)
+	if (this->m_nrOfEvents == this->m_capacity)
 	{
-		this->m_last = temp;
-		this->m_nrOfEvents++;
+		delete this->m_events[this->m_nrOfEvents--];
 	}
-	else if (this->m_nrOfEvents == this->m_capacity)
+
+	for (int i = this->m_nrOfEvents - 1; i >= 0; i--)
 	{
-		this->m_last = this->m_last->prev;
-		delete this->m_last->next;
-		this->m_last->next = nullptr;
+		this->m_events[i + 1] = this->m_events[i];
 	}
+
+	this->m_events[this->m_nrOfEvents++] = newEvent;
 }
 
-LogEvent Log::GetCurrent()
-{
-	LogEvent returnValue;
 
-	if (this->m_walker == this->m_last)
-	{
-		returnValue.author = "ERROR";
-		returnValue.data = "ERROR";
-	}
-	else
-	{
-		returnValue = this->m_walker->data;
-		this->m_walker = this->m_walker->next;
-	}
-	
-	return returnValue;
-}
 
-void Log::Reset_front()
+LogEvent Log::getEvent(int position)
 {
-	this->m_walker = this->m_first;
-}
-
-void Log::Reset_back()
-{
-	this->m_walker = this->m_last;
+	return *(this->m_events[position]);
 }

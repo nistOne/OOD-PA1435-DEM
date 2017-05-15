@@ -10,10 +10,7 @@ protected:
 
 	sf::RectangleShape m_box;
 	sf::Font m_font;
-	sf::Text * m_text;
-	int m_nrOfTexts;
-	
-	string m_printString;
+	sf::Text m_text;
 
 public:
 
@@ -28,10 +25,10 @@ public:
 	void setBox_outlineColor(sf::Color color);
 	void setBox_outlineThickness(float thickness);
 
-	void setText_string(int index, string text);
-	void setText_charSize(int index, int characterSize);
-	void setText_color(int index, sf::Color color);
-	void setText_position(int index, float x, float y);
+	void setText_string(string text);
+	void setText_charSize(int characterSize);
+	void setText_color(sf::Color color);
+	void setText_position(float x, float y);
 
 	virtual void Render(sf::RenderWindow &window) = 0;
 };

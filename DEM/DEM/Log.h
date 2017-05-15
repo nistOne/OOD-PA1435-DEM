@@ -13,40 +13,21 @@ class Log
 {
 private:
 
-	class LogNode
-	{
-	public:
-		LogNode(LogEvent logEvent, LogNode * next = nullptr, LogNode * prev = nullptr)
-		{
-			this->data = logEvent;
-			this->next = next;
-			this->prev = prev;
-		}
-		~LogNode() { delete this->next; }
-
-		LogNode * next;
-		LogNode * prev;
-
-		LogEvent data;
-	};
-
-	LogNode * m_first;
-	LogNode * m_walker;
-	LogNode * m_last;
-
+	LogEvent ** m_events;
 	int m_capacity;
 	int m_nrOfEvents;
+
+	void setNull(int fromIndex = 0);
 
 public:
 
 	Log();
 	~Log();
 
-	void setCapacity(int capacity);
+	int getCapacity();
+	int getNrOfElements();
 
 	void Push(LogEvent logEvent);
 
-	LogEvent GetCurrent();
-	void Reset_front();
-	void Reset_back();
+	LogEvent getEvent(int position);
 };
