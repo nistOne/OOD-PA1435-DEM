@@ -4,7 +4,7 @@
 class GameWindow : public Window
 {
 private:
-	// Edit
+	// Add getMap function.
 
 
 public:

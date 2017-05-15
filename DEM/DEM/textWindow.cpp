@@ -37,19 +37,19 @@ void TextWindow::testUpdate()
 
 	tempEvent.author = "MONSTER";
 	tempEvent.data = "You can run, but you can't hide!";
-	this->m_log.Push(tempEvent);
+	//this->m_log.Push(tempEvent);
 
 	tempEvent.author = "CHILD";
 	tempEvent.data = "Lol fkn pleb.";
-	this->m_log.Push(tempEvent);
+	//this->m_log.Push(tempEvent);
 
 	tempEvent.author = "MONSTER";
 	tempEvent.data = "LOL I GOT FKN REKT SON!";
-	this->m_log.Push(tempEvent);
+	//this->m_log.Push(tempEvent);
 
 	tempEvent.author = "Nist";
 	tempEvent.data = "Neat.";
-	this->m_log.Push(tempEvent);
+	//this->m_log.Push(tempEvent);
 
 	//this->m_text[0].setString(chat);
 	//this->m_printString = chat;
@@ -67,14 +67,16 @@ void TextWindow::Render(sf::RenderWindow &window)
 
 	
 
-	for (int i = this->m_log.getNrOfElements(); i >= 0; i--)
-	{
-		msg = this->m_log.getEvent(i);
+	//for (int i = this->m_log.getNrOfElements(); i >= 0; i--)
+	//{
+	//	msg = this->m_log.getEvent(i);
 
-		tempText.setFont(this->m_font);
-		tempText.setString("[" + msg.author + "]\n\t" + msg.data + "\n\n");
-	
-		//window.draw(this->m_text[i]);
-		window.draw(tempText);
-	}
+	//	tempText.setFont(this->m_font);
+	//	tempText.setString("[" + msg.author + "]\n\t" + msg.data + "\n\n");
+	//
+	//	//window.draw(this->m_text[i]);
+	//	window->draw(tempText);
+	//}
+	this->m_text.setString("NIST IS HERE");
+	window.draw(this->m_text);
 }

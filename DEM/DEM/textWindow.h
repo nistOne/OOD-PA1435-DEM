@@ -9,7 +9,7 @@ class TextWindow : public Window
 private:
 
 	// Edit
-	Log m_log;
+	//Log m_log;
 
 public:
 
