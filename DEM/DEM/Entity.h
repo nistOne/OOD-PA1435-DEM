@@ -1,19 +1,23 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+#include "SFML-2.4.2/include/SFML/Graphics.hpp"
 #include <string>
 class Entity
 {
-private:
+protected:
 	float hitPoint;
 	float strenght;
+	int lastDamageTaken;
 	std::string name;
 	sf::Sprite sprite;
 	sf::Vector2f pos;
 public:
 	Entity();
-	~Entity();
-	sf::Vector2f getPos();
-	float getStrength();
+	Entity(float x, float y, int hitPoint, int strenght, std::string name);
+	virtual ~Entity();
+	sf::Vector2f getPos()const;
+	float getStrength()const;
 	bool update();
-	virtual void move()const = 0;
+	void takeDamage(int damage);
+	int getLastDamageTaken()const;
+	virtual void move(float x, float y) = 0;
 };
