@@ -1,62 +1,54 @@
 #include "Log.h"
 
-void Log::setNull(int fromIndex)
-{
-	for (int i = fromIndex; i < this->m_capacity; i++)
-	{
-		this->m_events[i] = nullptr;
-	}
-}
-
 Log::Log()
 {
-	this->m_capacity = 20;
-	this->m_nrOfEvents = 0;
-
-	this->m_events = new LogEvent*[this->m_nrOfEvents];
-	this->setNull();
 }
 
 Log::~Log()
 {
-	for (int i = 0; i < this->m_capacity; i++)
+	this->m_messages.clear();
+}
+
+void Log::addMessage(string author, string message)
+{
+	LogMessage msg = { author, message };
+	this->m_messages.push_back(msg);
+}
+
+void Log::addMessage(string message)
+{
+	LogMessage msg = { "None", message };
+	this->m_messages.push_back(msg);
+}
+
+int Log::getNrOfMessages()
+{
+	return this->m_messages.size();
+}
+
+string Log::getMessageAtLine(int line)
+{
+	string returnString;
+	LogMessage msg = this->m_messages.at(line);
+
+	returnString = "[" + msg.author + "]\n";
+
+	if (msg.data.length() < 30)	
+		returnString += "\t" + msg.data;
+	else
 	{
-		delete this->m_events[i];
-	}
-	
-	delete[]this->m_events;
-}
+		returnString += "\t";
+		for (int i = 0; i < msg.data.length(); i++)
+		{
+			returnString += msg.data[i];
 
-int Log::getCapacity()
-{
-	return this->m_capacity;
-}
-
-int Log::getNrOfElements()
-{
-	return this->m_nrOfEvents;
-}
-
-void Log::Push(LogEvent logEvent)
-{
-	LogEvent * newEvent = new LogEvent(logEvent);
-
-	if (this->m_nrOfEvents == this->m_capacity)
-	{
-		delete this->m_events[this->m_nrOfEvents--];
+			if (i != 0 && i % 35 == 0)
+			{
+				returnString += "\n\t";
+			}
+		}
 	}
 
-	for (int i = this->m_nrOfEvents - 1; i >= 0; i--)
-	{
-		this->m_events[i + 1] = this->m_events[i];
-	}
-
-	this->m_events[this->m_nrOfEvents++] = newEvent;
+	return returnString;
 }
 
-
-
-LogEvent Log::getEvent(int position)
-{
-	return *(this->m_events[position]);
-}

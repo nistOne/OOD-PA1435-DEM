@@ -9,14 +9,11 @@ using namespace std;
 int main()
 {
 	Graphics graphics;
-	//sf::RenderWindow * rw = new sf::RenderWindow(sf::VideoMode(1200, 800), "DEM");
-	//graphics.setRenderWindow(rw);
 
 	std::cout << "Nists branch!" << std::endl;
 
 	//bool state = true;
 	//while(state)
-	//while (rw->isOpen())
 	while(true)
 	{
 		graphics.Render();
@@ -28,8 +25,6 @@ int main()
 				rw->close();
 		}*/
 	}
-
-	//delete rw;
 
 	return 0;
 }

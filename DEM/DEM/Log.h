@@ -1,9 +1,10 @@
 #pragma once
 #include <string>
+#include <vector>
 
 using namespace std;
 
-struct LogEvent
+struct LogMessage
 {
 	string author;
 	string data;
@@ -13,21 +14,16 @@ class Log
 {
 private:
 
-	LogEvent ** m_events;
-	int m_capacity;
-	int m_nrOfEvents;
-
-	void setNull(int fromIndex = 0);
+	vector<LogMessage> m_messages;
 
 public:
 
 	Log();
 	~Log();
 
-	int getCapacity();
-	int getNrOfElements();
-
-	void Push(LogEvent logEvent);
-
-	LogEvent getEvent(int position);
+	void addMessage(string author, string message);
+	void addMessage(string message);
+	
+	int getNrOfMessages();
+	string getMessageAtLine(int line);
 };

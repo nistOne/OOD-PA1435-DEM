@@ -7,6 +7,7 @@ private:
 	// Add getMap function.
 
 
+
 public:
 
 	GameWindow();

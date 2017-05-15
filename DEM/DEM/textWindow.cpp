@@ -1,5 +1,7 @@
 #include "TextWindow.h"
 
+#define CAP 20
+
 TextWindow::TextWindow() : Window()
 {
 	//this->m_box.setOutlineColor(sf::Color::White);
@@ -8,6 +10,21 @@ TextWindow::TextWindow() : Window()
 	setBox_outlineThickness(2);
 
 	this->m_text.setPosition(815, 50);
+
+	this->m_log.addMessage("MONSTER", "You can run, but you can't hide!");
+	this->m_log.addMessage("CHILD", "Lol fkn pleb.");
+	this->m_log.addMessage("MONSTER", "LOL I GOT FKN REKT SON!");
+	this->m_log.addMessage("Nist", "Neat.");
+
+	string lorem = "";
+	lorem += "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+	lorem += " Integer mauris est, ornare adipiscing elit.Integer mauris";
+	lorem += " est, ornare sagittis rutrum quis, semper a neque.Nunc in";
+	lorem += " vulputate nulla.Aliquam pretium varius luctus.Suspendisse";
+	lorem += " nisl magna, malesuada vel felis dictum, luctus aliquam velit.";
+
+	this->m_log.addMessage(lorem);
+
 }
 
 TextWindow::~TextWindow()
@@ -27,56 +44,28 @@ void TextWindow::testUpdate()
 	//chat += "[Nist]\n";
 	//chat += "\tNeat.\n\n";
 	//chat += "Lorem ipsum dolor sit amet, consectetur\n";
-	//chat += "adipiscing elit.Integer mauris est, ornare\n";
-	//chat += "sagittis rutrum quis, semper a neque.Nunc\n";
-	//chat += "in vulputate nulla.Aliquam pretium varius\n";
-	//chat += "luctus.Suspendisse nisl magna, malesuada\n";
-	//chat += "vel felis dictum, luctus aliquam velit.\n\n";
-
-	LogEvent tempEvent;
-
-	tempEvent.author = "MONSTER";
-	tempEvent.data = "You can run, but you can't hide!";
-	//this->m_log.Push(tempEvent);
-
-	tempEvent.author = "CHILD";
-	tempEvent.data = "Lol fkn pleb.";
-	//this->m_log.Push(tempEvent);
-
-	tempEvent.author = "MONSTER";
-	tempEvent.data = "LOL I GOT FKN REKT SON!";
-	//this->m_log.Push(tempEvent);
-
-	tempEvent.author = "Nist";
-	tempEvent.data = "Neat.";
-	//this->m_log.Push(tempEvent);
-
-	//this->m_text[0].setString(chat);
-	//this->m_printString = chat;
+	//chat += "\n";
+	//chat += "\n";
+	//chat += "\n";
+	//chat += "\n";
+	//chat += "\n\n";
 }
 
 void TextWindow::Render(sf::RenderWindow &window)
 {
-	//window.draw(this->m_box);
 	window.draw(this->m_box);
+
+	int nrOfMessages = this->m_log.getNrOfMessages();
+	nrOfMessages > CAP ? CAP : nrOfMessages;
+
+	string print = "";
 	
-	// Draw won't work with an array sf::Text..
-	sf::Text tempText;
+	for (int i = 0; i < nrOfMessages; i++)
+	{
+		print += this->m_log.getMessageAtLine(i);
+		print += "\n\n";
 
-	LogEvent msg;
-
-	
-
-	//for (int i = this->m_log.getNrOfElements(); i >= 0; i--)
-	//{
-	//	msg = this->m_log.getEvent(i);
-
-	//	tempText.setFont(this->m_font);
-	//	tempText.setString("[" + msg.author + "]\n\t" + msg.data + "\n\n");
-	//
-	//	//window.draw(this->m_text[i]);
-	//	window->draw(tempText);
-	//}
-	this->m_text.setString("NIST IS HERE");
-	window.draw(this->m_text);
+	}
+		this->m_text.setString(print);
+		window.draw(this->m_text);
 }
