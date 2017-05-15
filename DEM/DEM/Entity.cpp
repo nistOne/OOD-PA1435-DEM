@@ -27,8 +27,11 @@ float Entity::getStrength()const
 }
 bool Entity::update()
 {
+	// EDIT
 
+	return false;
 }
+
 sf::Vector2f Entity::getPos()const
 {
 	return this->pos;

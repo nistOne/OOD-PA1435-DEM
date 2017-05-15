@@ -10,5 +10,5 @@ public:
 	~NPC();
 	void move(float x, float y);
 	std::string returnLine();
-	response getResponse(action);
+	//response getResponse(action);
 };
