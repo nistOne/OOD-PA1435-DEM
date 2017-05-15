@@ -2,12 +2,22 @@
 #include <iostream>
 #include <string>
 
+#include "Map.h"
+
 #include "Graphics.h"
 
 using namespace std;
 
 int main()
 {
+	Map map;
+	map.GenerateMap();
+	map.Print();
+	sf::RenderWindow window(sf::VideoMode(800, 800), "SFML works!");
+	sf::CircleShape shape(100.f);
+	shape.setFillColor(sf::Color::Green);
+
+	while (window.isOpen())
 	Graphics graphics;
 	std::cout << "Master branch!" << std::endl;
 
