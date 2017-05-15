@@ -13,7 +13,8 @@ public:
 	Map();
 	~Map();
 
-	bool GenerateMap();
+	void GenerateMap();
+	void Print();
 };
 
 #endif // !MAP_HB
