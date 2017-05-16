@@ -48,6 +48,7 @@ EntityHandler::EntityHandler()
 	entitys = new Entity*[10];
 
 	this->m_mapObserver = new MapObserver();
+	this->m_dialogueGrabber = new DialogueGrabber();
 }
 
 EntityHandler::~EntityHandler() {
@@ -56,14 +57,7 @@ EntityHandler::~EntityHandler() {
 	delete[] entitys;
 
 	delete this->m_mapObserver;
-}
-
-void EntityHandler::initialize(Observer * dialogueObserver)
-{
-	// EDIT!
-	Player* temp = dynamic_cast<Player*>(this->entitys[0]);
-
-	temp->registerDialogueObserver(dialogueObserver);
+	delete this->m_dialogueGrabber;
 }
 
 void EntityHandler::addPlayer(std::string name)
@@ -75,6 +69,10 @@ void EntityHandler::addPlayer(std::string name)
 bool EntityHandler::update()
 {
 	Entity* temp = nullptr;
+
+	// Update map.
+	this->m_mapObserver->getMap(this->m_map);
+
 	if (wantToMove(getPlayerIndex()))
 	{
 		if (checkWallCollision())
@@ -91,9 +89,6 @@ bool EntityHandler::update()
 			}
 		}
 	}
-
-	// Update map.
-	this->m_mapObserver->getMap(this->m_map);
 	
 	return true;
 }
@@ -116,10 +111,6 @@ int EntityHandler::calcDamage(int strenght)
 	}
 	return actualDamage;
 }
-std::string EntityHandler::getResponse(Player& player)const
-{
-	return response;
-}
 
 Observer* EntityHandler::getMapObserver()
 {
@@ -129,13 +120,20 @@ void EntityHandler::attack(Entity* attacker, Entity* target)
 {
 	int actualDamage = calcDamage(attacker->getStrength());
 	target->takeDamage(actualDamage);
-	response = attacker->getName() + " Attacks " + target->getName() + " for" + std::to_string(actualDamage) + " Damage";
+
+	string dialogue = attacker->getName() + " Attacks " + target->getName() + " for" + std::to_string(actualDamage) + " Damage";
+	this->m_dialogueGrabber->addDialogue("FIGHT", dialogue);
 }
 
-Observer * EntityHandler::getPlayerObserver()
+Observer * EntityHandler::getInputObserver()
 {
 	// EDIT!
 	Player* temp = dynamic_cast<Player*>(this->entitys[0]);
 
 	return temp->getInputObserver();
+}
+
+void EntityHandler::registerDialogueObserver(Observer * dialogueObserver)
+{
+	this->m_dialogueGrabber->registerInputObserver(dialogueObserver);
 }

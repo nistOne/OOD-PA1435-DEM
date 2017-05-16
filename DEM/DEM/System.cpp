@@ -26,8 +26,8 @@ void System::Run()
 	// Register observers.
 	this->m_map.registerObserver(this->m_entityHandler.getMapObserver());
 	this->m_map.registerObserver(this->m_graphics.getMapObserver());
-	this->m_inputGrabber->registerObserver(this->m_entityHandler.getPlayerObserver());
-	this->m_entityHandler.initialize(this->m_graphics.getDialogueObserver());
+	this->m_entityHandler.registerDialogueObserver(this->m_graphics.getDialogueObserver());
+	this->m_inputGrabber->registerInputObserver(this->m_entityHandler.getInputObserver());
 
 	this->m_map.GenerateMap();
 

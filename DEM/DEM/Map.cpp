@@ -254,7 +254,7 @@ void Map::Print()
 
 void Map::registerObserver(Observer * observer)
 {
-	this->m_mapGrabber->registerObserver(observer);
+	this->m_mapGrabber->registerInputObserver(observer);
 }
 
 void Map::getMap(char map[MAPWIDTH][MAPHEIGHT])

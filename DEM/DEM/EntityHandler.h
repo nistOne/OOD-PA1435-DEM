@@ -8,14 +8,17 @@
 #include "Map.h"
 #include "Constants.h"
 #include "MapObserver.h"
+#include "DialogueGrabber.h"
 
 class EntityHandler
 {
 private:
 	Entity** entitys;
 	int nrOfEntitys;
-	std::string response;
+
 	MapObserver* m_mapObserver;
+	DialogueGrabber* m_dialogueGrabber;
+
 	char m_map[MAPWIDTH][MAPHEIGHT];
 
 	bool wantToMove(int entityIndex);						// checks if the player pos = it's targeted pos
@@ -28,18 +31,14 @@ public:
 	~EntityHandler();
 	void attack(Entity* attacker, Entity* target);
 
-	void initialize(Observer* dialogueObserver);
-
 	void addPlayer(std::string name);
 	
 	bool update();
-	bool checkUnitCollision();
-	bool checkWallCollision(sf::Vector2i dir);
 	int calcDamage(int strenght);
-	std::string getResponse(Player& player)const;
 
 	Observer* getMapObserver();
-	Observer* getPlayerObserver();
+	Observer* getInputObserver();
+	void registerDialogueObserver(Observer* dialogueObserver);
 };
 
 #endif // !ENTITYHANDLER_H
