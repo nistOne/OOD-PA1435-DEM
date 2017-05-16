@@ -39,9 +39,6 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -91,6 +88,9 @@
       <Filter>Source Files\Observer files</Filter>
     </ClCompile>
     <ClCompile Include="MapObserver.cpp">
+      <Filter>Source Files\Observer files</Filter>
+    </ClCompile>
+    <ClCompile Include="InputGrabber.cpp">
       <Filter>Source Files\Observer files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -145,6 +145,9 @@
     </ClInclude>
     <ClInclude Include="Constants.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InputGrabber.h">
+      <Filter>Header Files\Observer files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
