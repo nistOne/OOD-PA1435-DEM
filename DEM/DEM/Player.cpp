@@ -6,7 +6,7 @@ Player::Player(int x, int y, int hitPoint, int strenght, std::string name) : Ent
 }
 Player::~Player()
 {
-
+	this->m_inputObserver = new InputObserver;
 }
 void Player::move(sf::Vector2i dir)
 {
