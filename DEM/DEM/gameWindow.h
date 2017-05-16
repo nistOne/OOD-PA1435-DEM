@@ -19,5 +19,5 @@ public:
 
 	Observer* getObserver();
 
-	virtual void Render(sf::RenderWindow &window);
+	virtual void Render(sf::RenderWindow* window);
 };

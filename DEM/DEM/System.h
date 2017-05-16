@@ -7,11 +7,10 @@ class System
 {
 private:
 
+	sf::RenderWindow* m_rWindow;
 	EntityHandler m_entityHandler;
 	Graphics m_graphics;
-	
-	
-	Map map;
+	Map m_map;
 
 public:
 

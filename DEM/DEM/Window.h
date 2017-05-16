@@ -30,5 +30,5 @@ public:
 	void setText_color(sf::Color color);
 	void setText_position(float x, float y);
 
-	virtual void Render(sf::RenderWindow &window) = 0;
+	virtual void Render(sf::RenderWindow* window) = 0;
 };

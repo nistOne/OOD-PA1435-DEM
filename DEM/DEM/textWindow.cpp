@@ -51,9 +51,9 @@ void TextWindow::testUpdate()
 	//chat += "\n\n";
 }
 
-void TextWindow::Render(sf::RenderWindow &window)
+void TextWindow::Render(sf::RenderWindow* window)
 {
-	window.draw(this->m_box);
+	window->draw(this->m_box);
 
 	int nrOfMessages = this->m_log.getNrOfMessages();
 	nrOfMessages > CAP ? CAP : nrOfMessages;
@@ -67,5 +67,5 @@ void TextWindow::Render(sf::RenderWindow &window)
 
 	}
 		this->m_text.setString(print);
-		window.draw(this->m_text);
+		window->draw(this->m_text);
 }

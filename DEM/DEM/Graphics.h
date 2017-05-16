@@ -7,7 +7,7 @@ class Graphics
 {
 private:
 
-	sf::RenderWindow m_window;
+	sf::RenderWindow * m_window;
 	GameWindow m_gameWindow;
 	TextWindow m_textWindow;
 
@@ -18,5 +18,6 @@ public:
 
 	Observer* getMapObserver();
 
+	void setRenderWindow(sf::RenderWindow* renderWindow);
 	void Render();
 };

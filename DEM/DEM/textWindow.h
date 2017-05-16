@@ -17,5 +17,5 @@ public:
 	~TextWindow();
 
 	void testUpdate();
-	virtual void Render(sf::RenderWindow &window);
+	virtual void Render(sf::RenderWindow* window);
 };

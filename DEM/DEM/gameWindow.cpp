@@ -16,9 +16,9 @@ Observer * GameWindow::getObserver()
 	return this->m_mapObserver;
 }
 
-void GameWindow::Render(sf::RenderWindow &window)
+void GameWindow::Render(sf::RenderWindow* window)
 {
-	window.draw(this->m_box);
+	window->draw(this->m_box);
 
 	// -- Get player info --
 
@@ -38,7 +38,7 @@ void GameWindow::Render(sf::RenderWindow &window)
 
 
 	this->m_text.setString(mapString);
-	window.draw(this->m_text);
+	window->draw(this->m_text);
 }
 
 //sf::Text text_map;
