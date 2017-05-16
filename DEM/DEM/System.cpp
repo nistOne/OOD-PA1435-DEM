@@ -28,6 +28,7 @@ void System::Run()
 		sf::Event event;
 		while (this->m_rWindow->pollEvent(event))
 		{
+
 			if (event.type == sf::Event::Closed)
 				this->m_rWindow->close();
 		}
