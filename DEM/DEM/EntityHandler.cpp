@@ -68,6 +68,11 @@ void EntityHandler::addPlayer(std::string name)
 
 bool EntityHandler::update()
 {
+	int playerIndex = this->getPlayerIndex();
+	Player* pPlayer = dynamic_cast<Player*>(this->entitys[playerIndex]);
+
+	pPlayer->update();
+
 	Entity* temp = nullptr;
 
 	// Update map.
@@ -127,8 +132,8 @@ void EntityHandler::attack(Entity* attacker, Entity* target)
 
 Observer * EntityHandler::getInputObserver()
 {
-	// EDIT!
-	Player* temp = dynamic_cast<Player*>(this->entitys[0]);
+	int playerIndex = this->getPlayerIndex();
+	Player* temp = dynamic_cast<Player*>(this->entitys[playerIndex]);
 
 	return temp->getInputObserver();
 }

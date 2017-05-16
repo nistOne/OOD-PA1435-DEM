@@ -18,7 +18,6 @@ Entity::Entity(int x, int y, int hitPoint, int strenght, std::string name)
 	pos.y = y;
 	targetPos.x = x;
 	targetPos.y = y;
-	this->lastDamageTaken = 0;
 }
 
 Entity::~Entity()
@@ -63,10 +62,4 @@ void Entity::setTargetPos(sf::Vector2i pos)
 void Entity::takeDamage(int damage)
 {
 	this->hitPoint -= damage;
-	this->lastDamageTaken = damage;
-}
-
-int Entity::getLastDamageTaken()const
-{
-	return this->lastDamageTaken;
 }
