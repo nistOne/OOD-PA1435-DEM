@@ -14,20 +14,20 @@ class EntityHandler
 private:
 	Entity** entitys;
 	int nrOfEntitys;
-
+	std::string response;
 	MapObserver* m_mapObserver;
 	char m_map[MAPWIDTH][MAPHEIGHT];
 
 public:
 	EntityHandler();
 	~EntityHandler();
-
+	void attack(Entity* attacker, Entity* target);
 	void addPlayer(std::string name);
-
+	
 	bool update();
 	bool checkUnitCollision();
 	bool checkWallCollision(sf::Vector2i dir);
-	float calcDamage(Player& player, NPC& npc);
+	int calcDamage(int strenght);
 	std::string getResponse(Player& player)const;
 
 	Observer* getObserver();
