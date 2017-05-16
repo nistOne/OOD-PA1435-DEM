@@ -13,6 +13,11 @@ Graphics::~Graphics()
 {
 }
 
+Observer * Graphics::getMapObserver()
+{
+	return this->m_gameWindow.getObserver();
+}
+
 void Graphics::Render()
 {
 	// Render GameWindow

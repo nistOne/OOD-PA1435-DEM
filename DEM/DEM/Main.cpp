@@ -2,25 +2,26 @@
 #include <iostream>
 #include <string>
 
-#include "Map.h"
-
 #include "Graphics.h"
+#include "Entity.h"
+#include "EntityHandler.h"
+
+#include "System.h"
 
 using namespace std;
 
+
+
 int main()
 {
-	Map map;
-	map.GenerateMap();
-	map.Print();
 
-	Graphics graphics;
-	std::cout << "Master branch!" << std::endl;
+	System system;
+	system.Run();
 
-	while (true)
+	/*while (true)
 	{
 		graphics.Render();
-	}
+	}*/
 
 	//while (window.isOpen())
 	//{
@@ -36,5 +37,27 @@ int main()
 	//	window.display();
 	//}
 
+	/*sf::Event event;
+	while (window.pollEvent(event))
+	{
+		switch (event.type) {
+
+		case sf::Event::KeyPressed:
+			if (event.key.code == sf::Keyboard::Up)
+			{
+				
+			}
+			else if (event.key.code == sf::Keyboard::Down)
+			{
+
+			}
+		default:
+			break;
+		}
+	}*/
+
 	return 0;
 }
+
+
+	
