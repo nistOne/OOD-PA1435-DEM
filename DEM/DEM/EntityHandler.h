@@ -32,8 +32,6 @@ public:
 	void addPlayer(std::string name);
 
 	bool update(); // Need to call Player::update().
-	bool checkUnitCollision();
-	bool checkWallCollision();
 	float calcDamage(Player& player, NPC& npc);
 	std::string getResponse(Player& player)const;
 
