@@ -5,10 +5,10 @@ Entity::Entity()
 	hitPoint = 0;
 	strenght = 0;
 	name = "Unkown";
-	pos.x = 0.0;
-	pos.y = 0.0;
+	pos.x = 0;
+	pos.y = 0;
 }
-Entity::Entity(float x, float y, int hitPoint, int strenght, std::string name)
+Entity::Entity(int x, int y, int hitPoint, int strenght, std::string name)
 {
 	this->hitPoint = hitPoint;
 	this->strenght = strenght;
@@ -32,7 +32,7 @@ bool Entity::update()
 	return false;
 }
 
-sf::Vector2f Entity::getPos()const
+sf::Vector2i Entity::getPos()const
 {
 	return this->pos;
 }
