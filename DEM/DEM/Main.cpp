@@ -2,10 +2,6 @@
 #include <iostream>
 #include <string>
 
-#include "Graphics.h"
-#include "Entity.h"
-#include "EntityHandler.h"
-
 #include "System.h"
 
 using namespace std;

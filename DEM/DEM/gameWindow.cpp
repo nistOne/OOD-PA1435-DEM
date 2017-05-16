@@ -3,7 +3,7 @@
 GameWindow::GameWindow() : Window()
 {
 	this->m_mapObserver = new MapObserver();
-	this->m_text.setPosition(40, 60);
+	this->m_text.setPosition(80, 0);
 }
 
 GameWindow::~GameWindow()
