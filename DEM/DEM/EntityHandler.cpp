@@ -42,6 +42,7 @@ bool EntityHandler::checkWallCollision()
 	return false;
 }
 
+#include <time.h>
 EntityHandler::EntityHandler()
 {
 	entitys = new Entity*[10];
@@ -96,24 +97,39 @@ bool EntityHandler::update()
 	
 	return true;
 }
-float EntityHandler::calcDamage(Player& player, NPC& npc)
+int EntityHandler::calcDamage(int strenght)
 {
-	player.takeDamage(npc.getStrength());
-
-	// EDIT
-	return -1;
+	int actualDamage = 0;
+	srand(time(NULL));
+	int random = rand() % 7;
+	if (random == 5)
+	{
+		actualDamage = strenght * 2;
+	}
+	else if (random == 3 || random == 6)
+	{
+		actualDamage = 0;
+	}
+	else
+	{
+		actualDamage = strenght * 1;
+	}
+	return actualDamage;
 }
 std::string EntityHandler::getResponse(Player& player)const
 {
-	std::string response = "The monster hits the player for " + player.getLastDamageTaken();
-
-	// EDIT
 	return response;
 }
 
 Observer* EntityHandler::getMapObserver()
 {
 	return this->m_mapObserver;
+}
+void EntityHandler::attack(Entity* attacker, Entity* target)
+{
+	int actualDamage = calcDamage(attacker->getStrength());
+	target->takeDamage(actualDamage);
+	response = attacker->getName() + " Attacks " + target->getName() + " for" + std::to_string(actualDamage) + " Damage";
 }
 
 Observer * EntityHandler::getPlayerObserver()

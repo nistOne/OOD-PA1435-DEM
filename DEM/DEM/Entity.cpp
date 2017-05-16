@@ -30,7 +30,14 @@ float Entity::getStrength()const
 {
 	return this->strenght;
 }
-
+float Entity::getHitPoint()const
+{
+	return this->hitPoint;
+}
+std::string Entity::getName()const
+{
+	return this->name;
+}
 bool Entity::update()
 {
 	// EDIT

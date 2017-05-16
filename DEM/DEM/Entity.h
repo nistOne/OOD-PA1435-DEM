@@ -5,8 +5,8 @@
 class Entity
 {
 protected:
-	float hitPoint;
-	float strenght;
+	int hitPoint;
+	int strenght;
 	int lastDamageTaken;
 	std::string name;
 	sf::Vector2i pos;
@@ -22,5 +22,7 @@ public:
 	bool update();
 	void takeDamage(int damage);
 	int getLastDamageTaken()const;
+	float getHitPoint()const;
+	std::string getName()const;
 	virtual void move() = 0;
 };

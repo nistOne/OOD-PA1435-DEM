@@ -14,7 +14,7 @@ class EntityHandler
 private:
 	Entity** entitys;
 	int nrOfEntitys;
-
+	std::string response;
 	MapObserver* m_mapObserver;
 	char m_map[MAPWIDTH][MAPHEIGHT];
 
@@ -26,13 +26,16 @@ private:
 public:
 	EntityHandler();
 	~EntityHandler();
+	void attack(Entity* attacker, Entity* target);
 
 	void initialize(Observer* dialogueObserver);
 
 	void addPlayer(std::string name);
-
-	bool update(); // Need to call Player::update().
-	float calcDamage(Player& player, NPC& npc);
+	
+	bool update();
+	bool checkUnitCollision();
+	bool checkWallCollision(sf::Vector2i dir);
+	int calcDamage(int strenght);
 	std::string getResponse(Player& player)const;
 
 	Observer* getMapObserver();
