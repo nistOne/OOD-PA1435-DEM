@@ -9,7 +9,6 @@ protected:
 	float strenght;
 	int lastDamageTaken;
 	std::string name;
-	sf::Sprite sprite;
 	sf::Vector2i pos;
 	sf::Vector2i targetPos;
 public:
