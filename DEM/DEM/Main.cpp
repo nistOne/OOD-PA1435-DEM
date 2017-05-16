@@ -2,11 +2,13 @@
 #include <iostream>
 #include <string>
 
-#include "Map.h"
-
 #include "Graphics.h"
+#include "Entity.h"
+#include "EntityHandler.h"
 
 using namespace std;
+
+
 
 int main()
 {
@@ -36,5 +38,27 @@ int main()
 	//	window.display();
 	//}
 
+	/*sf::Event event;
+	while (window.pollEvent(event))
+	{
+		switch (event.type) {
+
+		case sf::Event::KeyPressed:
+			if (event.key.code == sf::Keyboard::Up)
+			{
+				
+			}
+			else if (event.key.code == sf::Keyboard::Down)
+			{
+
+			}
+		default:
+			break;
+		}
+	}*/
+
 	return 0;
 }
+
+
+	
