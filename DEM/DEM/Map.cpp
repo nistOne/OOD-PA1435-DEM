@@ -8,10 +8,12 @@ using namespace ::std;
 
 Map::Map()
 {
+	this->m_mapGrabber = new MapGrabber();
 }
 
 Map::~Map()
 {
+	delete this->m_mapGrabber;
 }
 
 void Map::GenerateMap()
@@ -228,6 +230,9 @@ void Map::GenerateMap()
 			}// if
 		} // while
 	} //for all paths
+
+	// Notify all observers with an update.
+	this->m_mapGrabber->setMap(this->m_map);
 }
 
 void Map::Print()
@@ -245,6 +250,11 @@ void Map::Print()
 				i = MAPWIDTH;
 		}// if
 	}// for
+}
+
+void Map::registerObserver(Observer * observer)
+{
+	this->m_mapGrabber->registerObserver(observer);
 }
 
 void Map::getMap(char map[MAPWIDTH][MAPHEIGHT])

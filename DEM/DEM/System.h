@@ -9,6 +9,8 @@ private:
 	//EntityHandler entityHandler;
 	Graphics m_graphics;
 	
+	// Delete!!!
+	Map map;
 
 public:
 

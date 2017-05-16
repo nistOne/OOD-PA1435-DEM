@@ -10,7 +10,9 @@ System::~System()
 
 void System::Run()
 {
-	
+	this->map.registerObserver(this->m_graphics.getMapObserver());
+	this->map.GenerateMap();
+
 	// Game loop. Observ input later on.
 	while (true)
 	{

@@ -16,5 +16,7 @@ public:
 	Graphics();
 	~Graphics();
 
+	Observer* getMapObserver();
+
 	void Render();
 };

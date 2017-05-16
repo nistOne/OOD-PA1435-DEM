@@ -2,14 +2,18 @@
 
 GameWindow::GameWindow() : Window()
 {
+	this->m_mapObserver = new MapObserver();
 	this->m_text.setPosition(40, 60);
-
-	m_map.GenerateMap();
-	m_map.Print();
 }
 
 GameWindow::~GameWindow()
 {
+	delete this->m_mapObserver;
+}
+
+Observer * GameWindow::getObserver()
+{
+	return this->m_mapObserver;
 }
 
 void GameWindow::Render(sf::RenderWindow &window)
@@ -18,17 +22,16 @@ void GameWindow::Render(sf::RenderWindow &window)
 
 	// -- Get player info --
 
-	// Get map
+	// -- Get map --
+	this->m_mapObserver->getMap(this->m_map);
+
 	string mapString = "";
-	
-	char tempMap[MAPWIDTH][MAPHEIGHT];
-	this->m_map.getMap(tempMap);
 
 	for (int i = 0; i < MAPHEIGHT; i++)
 	{
 		for (int j = 0; j < MAPWIDTH; j++)
 		{
-			mapString += tempMap[j][i];
+			mapString += this->m_map[j][i];
 		}
 		mapString += "\n";
 	}
