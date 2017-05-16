@@ -1,15 +1,16 @@
 #pragma once
 #include "Graphics.h"
+#include "EntityHandler.h"
 #include "Map.h"
 
 class System
 {
 private:
 
-	//EntityHandler entityHandler;
+	EntityHandler m_entityHandler;
 	Graphics m_graphics;
 	
-	// Delete!!!
+	
 	Map map;
 
 public:

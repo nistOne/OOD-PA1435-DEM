@@ -1,15 +1,23 @@
 #include "EntityHandler.h"
 
-EntityHandler::EntityHandler(std::string name)
+EntityHandler::EntityHandler()
 {
 	entitys = new Entity*[10];
-	this->entitys[0] = new Player(45.0, 45.0, 100, 25, name);
-	this->nrOfEntitys = 1;
+
+	this->m_mapObserver = new MapObserver();
 }
 EntityHandler::~EntityHandler() {
 	for (int i = 0; i < nrOfEntitys; i++)
 		delete entitys[i];
 	delete[] entitys;
+
+	delete this->m_mapObserver;
+}
+
+void EntityHandler::addPlayer(std::string name)
+{
+	// Fix cap to avoid accessing undefined memory!
+	this->entitys[nrOfEntitys++] = new Player(45.0, 45.0, 100, 25, name);
 }
 
 bool EntityHandler::checkUnitCollision()
@@ -58,9 +66,10 @@ bool EntityHandler::checkWallCollision(sf::Vector2i dir)
 }
 bool EntityHandler::update()
 {
-
-	// EDIT
-	return false;
+	// Update map.
+	this->m_mapObserver->getMap(this->m_map);
+	
+	return true;
 }
 float EntityHandler::calcDamage(Player& player, NPC& npc)
 {
@@ -75,4 +84,9 @@ std::string EntityHandler::getResponse(Player& player)const
 
 	// EDIT
 	return response;
+}
+
+Observer * EntityHandler::getObserver()
+{
+	return this->m_mapObserver;
 }

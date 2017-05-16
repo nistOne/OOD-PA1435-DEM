@@ -1,9 +1,7 @@
 #ifndef MAP_H
 #define MAP_H
 #include "MapGrabber.h"
-
-#define MAPHEIGHT 60
-#define MAPWIDTH 90
+#include "Constants.h"
 
 class Map
 {
