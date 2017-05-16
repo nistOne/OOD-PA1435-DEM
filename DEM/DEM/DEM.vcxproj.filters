@@ -31,9 +31,6 @@
     <Filter Include="Source Files\Observer files">
       <UniqueIdentifier>{a5a7a55d-d3b9-4843-bcc0-8b532de973e2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Units">
-      <UniqueIdentifier>{9897828b-fa84-4b98-b756-3654d3b751cf}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -90,9 +87,6 @@
     <ClCompile Include="MapObserver.cpp">
       <Filter>Source Files\Observer files</Filter>
     </ClCompile>
-    <ClCompile Include="InputGrabber.cpp">
-      <Filter>Source Files\Observer files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="System.h">
@@ -145,9 +139,6 @@
     </ClInclude>
     <ClInclude Include="Constants.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="InputGrabber.h">
-      <Filter>Header Files\Observer files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
