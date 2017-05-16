@@ -18,6 +18,8 @@ private:
 	MapObserver* m_mapObserver;
 	char m_map[MAPWIDTH][MAPHEIGHT];
 
+	bool wantToMove();
+
 public:
 	EntityHandler();
 	~EntityHandler();
@@ -26,7 +28,7 @@ public:
 
 	bool update();
 	bool checkUnitCollision();
-	bool checkWallCollision(sf::Vector2i dir);
+	bool checkWallCollision();
 	float calcDamage(Player& player, NPC& npc);
 	std::string getResponse(Player& player)const;
 

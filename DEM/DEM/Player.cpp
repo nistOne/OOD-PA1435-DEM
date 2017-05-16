@@ -10,5 +10,5 @@ Player::~Player()
 }
 void Player::move(sf::Vector2i dir)
 {
-	
+	this->pos = this->targetPos;
 }

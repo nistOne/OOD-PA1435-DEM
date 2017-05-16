@@ -23,6 +23,7 @@
     <ClCompile Include="EntityHandler.cpp" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="InputGrabber.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -43,6 +44,7 @@
     <ClInclude Include="EntityHandler.h" />
     <ClInclude Include="GameWindow.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="InputGrabber.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="Map.h" />

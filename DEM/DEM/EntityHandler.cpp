@@ -1,5 +1,10 @@
 #include "EntityHandler.h"
 
+bool EntityHandler::wantToMove()
+{
+	return false;
+}
+
 EntityHandler::EntityHandler()
 {
 	entitys = new Entity*[10];
@@ -24,44 +29,22 @@ bool EntityHandler::checkUnitCollision()
 {
 	for (int i = 1; i < nrOfEntitys; i++)
 	{
-		if (entitys[0]->getPos().x == entitys[i]->getPos().x && entitys[0]->getPos().y == entitys[0]->getPos().y)
+		if (entitys[0]->getTargetPos().x == entitys[i]->getTargetPos().x && entitys[0]->getPos().y == entitys[0]->getPos().y)
 		{
 			return true;
 		}
 	}
 	return false;
 }
-bool EntityHandler::checkWallCollision(sf::Vector2i dir)
+bool EntityHandler::checkWallCollision()
 {
-	//Directions a;
+	char map[MAPWIDTH][MAPHEIGHT];
+	m_mapObserver->getMap(map);
 
-	//if (dir.x == 0 && dir.y == 1)		// the direction is up
-	//	a = UP;
+	if (map[entitys[0]->getTargetPos().x][entitys[0]->getTargetPos().y] == 35 || 
+		map[entitys[0]->getTargetPos().x][entitys[0]->getTargetPos().y] == 46)	// if target tile is floor
+		return true;
 
-	//else if (dir.x == 1 && dir.y == 0)	// the direction is right
-	//	a = RIGHT;
-
-	//else if (dir.x == 0 && dir.y == -1)	// the direction is down
-	//	a = DOWN;
-
-	//else if (dir.x == -1 && dir.y == 0)	// the direction is left
-	//	a = LEFT;
-
-	//switch (a) {
-	//case UP:
-	//	if (m_map[entitys[0]->getPos().x][entitys[0]->getPos().y + 1])
-	//	{
-
-	//	}
-	//case RIGHT:
-
-	//case DOWN:
-
-	//case LEFT:
-
-	//default:
-	//	break;
-	//}
 	return false;
 }
 bool EntityHandler::update()
