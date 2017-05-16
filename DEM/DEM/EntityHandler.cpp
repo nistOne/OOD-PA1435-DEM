@@ -1,7 +1,44 @@
 #include "EntityHandler.h"
 
-bool EntityHandler::wantToMove()
+bool EntityHandler::wantToMove(int entityIndex)
 {
+	if (this->entitys[entityIndex]->getPos() != this->entitys[entityIndex]->getTargetPos())
+		return true;
+
+	return false;
+}
+
+int EntityHandler::getPlayerIndex()
+{
+	for (int i = 0; i < this->nrOfEntitys; i++)
+	{
+		if (entitys[i] == dynamic_cast<Player*>(entitys[i]))
+		{
+			return i;
+		}
+	}
+	/// error ? ? ? 
+}
+
+void EntityHandler::getEntityOnPos(sf::Vector2i pos, Entity* entity)
+{
+	for (int i = 0; i < nrOfEntitys && entity == nullptr; i++)
+	{
+		if (entitys[i]->getPos() == pos)
+			entity = entitys[i];
+	}
+}
+
+bool EntityHandler::checkWallCollision()
+{
+	char map[MAPWIDTH][MAPHEIGHT];
+	m_mapObserver->getMap(map);
+	int playerIndex = getPlayerIndex();
+
+	if (map[entitys[playerIndex]->getTargetPos().x][entitys[playerIndex]->getTargetPos().y] == 35 ||
+		map[entitys[playerIndex]->getTargetPos().x][entitys[playerIndex]->getTargetPos().y] == 46)	// if target tile is floor
+		return true;
+
 	return false;
 }
 
@@ -11,6 +48,7 @@ EntityHandler::EntityHandler()
 
 	this->m_mapObserver = new MapObserver();
 }
+
 EntityHandler::~EntityHandler() {
 	for (int i = 0; i < nrOfEntitys; i++)
 		delete entitys[i];
@@ -25,30 +63,26 @@ void EntityHandler::addPlayer(std::string name)
 	this->entitys[nrOfEntitys++] = new Player(45.0, 45.0, 100, 25, name);
 }
 
-bool EntityHandler::checkUnitCollision()
-{
-	for (int i = 1; i < nrOfEntitys; i++)
-	{
-		if (entitys[0]->getTargetPos().x == entitys[i]->getTargetPos().x && entitys[0]->getPos().y == entitys[0]->getPos().y)
-		{
-			return true;
-		}
-	}
-	return false;
-}
-bool EntityHandler::checkWallCollision()
-{
-	char map[MAPWIDTH][MAPHEIGHT];
-	m_mapObserver->getMap(map);
-
-	if (map[entitys[0]->getTargetPos().x][entitys[0]->getTargetPos().y] == 35 || 
-		map[entitys[0]->getTargetPos().x][entitys[0]->getTargetPos().y] == 46)	// if target tile is floor
-		return true;
-
-	return false;
-}
 bool EntityHandler::update()
 {
+	Entity* temp = nullptr;
+	if (wantToMove(getPlayerIndex()))
+	{
+		if (checkWallCollision())
+		{
+			getEntityOnPos(entitys[getPlayerIndex()]->getTargetPos(), temp);
+			if (temp == nullptr)
+			{
+				entitys[getPlayerIndex()]->move();
+				entitys[getPlayerIndex()]->setTargetPos(entitys[getPlayerIndex()]->getTargetPos());
+			}
+			else
+			{
+				// fight?
+			}
+		}
+	}
+
 	// Update map.
 	this->m_mapObserver->getMap(this->m_map);
 	
