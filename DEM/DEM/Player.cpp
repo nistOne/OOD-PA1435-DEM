@@ -10,7 +10,7 @@ Player::~Player()
 	delete this->m_dialogueGrabber;
 	delete this->m_inputObserver;
 }
-void Player::move(sf::Vector2i dir)
+void Player::move()
 {
 	this->pos = this->targetPos;
 }

@@ -18,7 +18,10 @@ private:
 	MapObserver* m_mapObserver;
 	char m_map[MAPWIDTH][MAPHEIGHT];
 
-	bool wantToMove();
+	bool wantToMove(int entityIndex);						// checks if the player pos = it's targeted pos
+	int getPlayerIndex();									// gets the index of the player in Entity**
+	void getEntityOnPos(sf::Vector2i pos, Entity* entity);	// checks if any entity is on target position
+	bool checkWallCollision();
 
 public:
 	EntityHandler();

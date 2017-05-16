@@ -8,6 +8,7 @@ Entity::Entity()
 	pos.x = 0;
 	pos.y = 0;
 }
+
 Entity::Entity(int x, int y, int hitPoint, int strenght, std::string name)
 {
 	this->hitPoint = hitPoint;
@@ -19,14 +20,17 @@ Entity::Entity(int x, int y, int hitPoint, int strenght, std::string name)
 	targetPos.y = y;
 	this->lastDamageTaken = 0;
 }
+
 Entity::~Entity()
 {
 
 }
+
 float Entity::getStrength()const
 {
 	return this->strenght;
 }
+
 bool Entity::update()
 {
 	// EDIT
@@ -38,15 +42,23 @@ sf::Vector2i Entity::getPos()const
 {
 	return this->pos;
 }
+
 sf::Vector2i Entity::getTargetPos() const
 {
 	return this->targetPos;
 }
+
+void Entity::setTargetPos(sf::Vector2i pos)
+{
+	this->targetPos = pos;
+}
+
 void Entity::takeDamage(int damage)
 {
 	this->hitPoint -= damage;
 	this->lastDamageTaken = damage;
 }
+
 int Entity::getLastDamageTaken()const
 {
 	return this->lastDamageTaken;

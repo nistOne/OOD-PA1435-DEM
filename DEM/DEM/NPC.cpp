@@ -11,5 +11,4 @@ void NPC::move(float x, float y)
 {
 	this->pos.x += x;
 	this->pos.y += y;
-	this->sprite.move(x, y);
 }
