@@ -6,21 +6,16 @@ MapGrabber::MapGrabber()
 
 MapGrabber::~MapGrabber()
 {
-}
 
-void MapGrabber::registerObserver(Observer * observer)
-{
-	this->m_observers.push_back(observer);
 }
 
 void MapGrabber::notifyObservers()
 {
-	MapObserver * tempObserver;
+	MapObserver* tempObserver;
 
 	for (int i = 0; i < this->m_observers.size(); i++)
 	{
 		tempObserver = dynamic_cast<MapObserver*>(this->m_observers.at(i)->getPointer());
-
 		tempObserver->update(this->m_map);
 	}
 }

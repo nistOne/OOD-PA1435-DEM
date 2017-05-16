@@ -17,7 +17,6 @@ public:
 	MapGrabber();
 	~MapGrabber();
 
-	virtual void registerObserver(Observer * observer);
 	virtual void notifyObservers();
 
 	void setMap(char map[MAPWIDTH][MAPHEIGHT]);

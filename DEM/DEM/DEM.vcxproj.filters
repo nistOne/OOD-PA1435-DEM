@@ -42,9 +42,6 @@
     <ClCompile Include="System.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="InputHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Entity.cpp">
       <Filter>Source Files\Entity files</Filter>
     </ClCompile>
@@ -85,6 +82,15 @@
       <Filter>Source Files\Observer files</Filter>
     </ClCompile>
     <ClCompile Include="MapObserver.cpp">
+      <Filter>Source Files\Observer files</Filter>
+    </ClCompile>
+    <ClCompile Include="InputGrabber.cpp">
+      <Filter>Source Files\Observer files</Filter>
+    </ClCompile>
+    <ClCompile Include="InputHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InputObserver.cpp">
       <Filter>Source Files\Observer files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -139,6 +145,12 @@
     </ClInclude>
     <ClInclude Include="Constants.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InputGrabber.h">
+      <Filter>Header Files\Observer files</Filter>
+    </ClInclude>
+    <ClInclude Include="InputObserver.h">
+      <Filter>Header Files\Observer files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

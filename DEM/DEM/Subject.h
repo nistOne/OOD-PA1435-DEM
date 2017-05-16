@@ -15,8 +15,8 @@ public:
 	Subject() {}
 	~Subject() {}
 
-	virtual void registerObserver(Observer * observer) = 0;
-	//virtual void unregisterObserver(Observer observer); // May need to be inplemented.
+	virtual void registerObserver(Observer* observer);
+	//virtual void unregisterObserver(Observer* observer);
 	virtual void notifyObservers() = 0;
 
 };

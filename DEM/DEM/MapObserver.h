@@ -14,9 +14,9 @@ public:
 	MapObserver();
 	~MapObserver();
 
+	void update(char map[MAPWIDTH][MAPHEIGHT]);
+
 	Observer* getPointer();
 	void getMap(char map[MAPWIDTH][MAPHEIGHT]);
-
-	void update(char map[MAPWIDTH][MAPHEIGHT]);
 
 };
