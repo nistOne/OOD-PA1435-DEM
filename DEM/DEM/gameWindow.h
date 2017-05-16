@@ -17,7 +17,7 @@ public:
 	GameWindow();
 	~GameWindow();
 
-	Observer* getObserver();
+	Observer* getMapObserver();
 
 	virtual void Render(sf::RenderWindow* window);
 };

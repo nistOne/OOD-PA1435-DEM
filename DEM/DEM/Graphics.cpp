@@ -15,7 +15,12 @@ Graphics::~Graphics()
 
 Observer * Graphics::getMapObserver()
 {
-	return this->m_gameWindow.getObserver();
+	return this->m_gameWindow.getMapObserver();
+}
+
+Observer * Graphics::getDialogueObserver()
+{
+	return this->m_textWindow.getDialoueObserver();
 }
 
 void Graphics::setRenderWindow(sf::RenderWindow* renderWindow)

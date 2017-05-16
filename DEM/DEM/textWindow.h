@@ -1,6 +1,6 @@
 #pragma once
 #include "Window.h"
-#include "Log.h"
+#include "DialogueObserver.h"
 
 using namespace std;
 
@@ -8,14 +8,14 @@ class TextWindow : public Window
 {
 private:
 
-	// Edit
-	Log m_log;
+	DialogueObserver* m_dialogueObserver;
 
 public:
 
 	TextWindow();
 	~TextWindow();
 
-	void testUpdate();
+	Observer* getDialoueObserver();
+	
 	virtual void Render(sf::RenderWindow* window);
 };

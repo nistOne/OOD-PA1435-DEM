@@ -34,4 +34,5 @@ void MapObserver::update(char map[MAPWIDTH][MAPHEIGHT])
 			this->m_map[i][j] = map[i][j];
 		}
 	}
+	this->setUpdated();
 }

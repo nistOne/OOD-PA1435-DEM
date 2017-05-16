@@ -2,6 +2,7 @@
 
 InputObserver::InputObserver()
 {
+	this->m_updated = false;
 }
 
 InputObserver::~InputObserver()
@@ -11,6 +12,7 @@ InputObserver::~InputObserver()
 void InputObserver::update(sf::Event event)
 {
 	this->m_event = event;
+	this->setUpdated();
 }
 
 Observer * InputObserver::getPointer()

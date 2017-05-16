@@ -24,15 +24,18 @@ public:
 	EntityHandler();
 	~EntityHandler();
 
+	void initialize(Observer* dialogueObserver);
+
 	void addPlayer(std::string name);
 
-	bool update();
+	bool update(); // Need to call Player::update().
 	bool checkUnitCollision();
 	bool checkWallCollision();
 	float calcDamage(Player& player, NPC& npc);
 	std::string getResponse(Player& player)const;
 
-	Observer* getObserver();
+	Observer* getMapObserver();
+	Observer* getPlayerObserver();
 };
 
 #endif // !ENTITYHANDLER_H

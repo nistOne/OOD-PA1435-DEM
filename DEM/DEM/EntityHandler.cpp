@@ -19,6 +19,14 @@ EntityHandler::~EntityHandler() {
 	delete this->m_mapObserver;
 }
 
+void EntityHandler::initialize(Observer * dialogueObserver)
+{
+	// EDIT!
+	Player* temp = dynamic_cast<Player*>(this->entitys[0]);
+
+	temp->setDialogueObserver(dialogueObserver);
+}
+
 void EntityHandler::addPlayer(std::string name)
 {
 	// Fix cap to avoid accessing undefined memory!
@@ -69,7 +77,15 @@ std::string EntityHandler::getResponse(Player& player)const
 	return response;
 }
 
-Observer * EntityHandler::getObserver()
+Observer* EntityHandler::getMapObserver()
 {
 	return this->m_mapObserver;
+}
+
+Observer * EntityHandler::getPlayerObserver()
+{
+	// EDIT!
+	Player* temp = dynamic_cast<Player*>(this->entitys[0]);
+
+	return temp->getInputObserver();
 }

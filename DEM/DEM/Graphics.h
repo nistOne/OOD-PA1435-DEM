@@ -17,6 +17,7 @@ public:
 	~Graphics();
 
 	Observer* getMapObserver();
+	Observer* getDialogueObserver();
 
 	void setRenderWindow(sf::RenderWindow* renderWindow);
 	void Render();

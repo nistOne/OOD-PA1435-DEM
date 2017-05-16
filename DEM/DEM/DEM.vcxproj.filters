@@ -93,6 +93,12 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\Entity files</Filter>
     </ClCompile>
+    <ClCompile Include="DialogueObserver.cpp">
+      <Filter>Source Files\Observer files</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogueGrabber.cpp">
+      <Filter>Source Files\Observer files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="System.h">
@@ -150,6 +156,12 @@
       <Filter>Header Files\Observer files</Filter>
     </ClInclude>
     <ClInclude Include="InputObserver.h">
+      <Filter>Header Files\Observer files</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogueObserver.h">
+      <Filter>Header Files\Observer files</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogueGrabber.h">
       <Filter>Header Files\Observer files</Filter>
     </ClInclude>
   </ItemGroup>

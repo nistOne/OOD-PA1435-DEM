@@ -7,7 +7,7 @@ using namespace std;
 struct LogMessage
 {
 	string author;
-	string data;
+	string message;
 };
 
 class Log

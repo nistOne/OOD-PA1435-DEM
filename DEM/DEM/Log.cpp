@@ -33,14 +33,14 @@ string Log::getMessageAtLine(int line)
 
 	returnString = "[" + msg.author + "]\n";
 
-	if (msg.data.length() < 30)	
-		returnString += "\t" + msg.data;
+	if (msg.message.length() < 30)	
+		returnString += "\t" + msg.message;
 	else
 	{
 		returnString += "\t";
-		for (int i = 0; i < msg.data.length(); i++)
+		for (int i = 0; i < msg.message.length(); i++)
 		{
-			returnString += msg.data[i];
+			returnString += msg.message[i];
 
 			if (i != 0 && i % 35 == 0)
 			{

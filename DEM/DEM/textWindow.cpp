@@ -4,6 +4,8 @@
 
 TextWindow::TextWindow() : Window()
 {
+	this->m_dialogueObserver = new DialogueObserver();
+
 	//this->m_box.setOutlineColor(sf::Color::White);
 	//this->m_box.setOutlineThickness(2);
 	setBox_outlineColor(sf::Color::White);
@@ -11,10 +13,10 @@ TextWindow::TextWindow() : Window()
 
 	this->m_text.setPosition(815, 50);
 
-	this->m_log.addMessage("MONSTER", "You can run, but you can't hide!");
-	this->m_log.addMessage("CHILD", "Lol fkn pleb.");
-	this->m_log.addMessage("MONSTER", "LOL I GOT FKN REKT SON!");
-	this->m_log.addMessage("Nist", "Neat.");
+	this->m_dialogueObserver->update("MONSTER", "You can run, but you can't hide!");
+	this->m_dialogueObserver->update("CHILD", "Lol fkn pleb.");
+	this->m_dialogueObserver->update("MONSTER", "LOL I GOT FKN REKT SON!");
+	this->m_dialogueObserver->update("Nist", "Neat.");
 
 	string lorem = "";
 	lorem += "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
@@ -23,46 +25,32 @@ TextWindow::TextWindow() : Window()
 	lorem += " vulputate nulla.Aliquam pretium varius luctus.Suspendisse";
 	lorem += " nisl magna, malesuada vel felis dictum, luctus aliquam velit.";
 
-	this->m_log.addMessage(lorem);
+	this->m_dialogueObserver->update("None", lorem);
 
 }
 
 TextWindow::~TextWindow()
 {
+	delete this->m_dialogueObserver;
 }
 
-void TextWindow::testUpdate()
+Observer * TextWindow::getDialoueObserver()
 {
-	//string chat = "";
-	//chat += "[MONSTER]\n";
-	//chat += "\tYou can run, but you can't\n";
-	//chat += "\thide!\n\n";
-	//chat += "[CHILD]\n";
-	//chat += "\tLol fkn pleb.\n\n";
-	//chat += "[MONSTER]\n";
-	//chat += "\tLOL I GOT FKN REKT SON!\n\n";
-	//chat += "[Nist]\n";
-	//chat += "\tNeat.\n\n";
-	//chat += "Lorem ipsum dolor sit amet, consectetur\n";
-	//chat += "\n";
-	//chat += "\n";
-	//chat += "\n";
-	//chat += "\n";
-	//chat += "\n\n";
+	return this->m_dialogueObserver;
 }
 
 void TextWindow::Render(sf::RenderWindow* window)
 {
 	window->draw(this->m_box);
 
-	int nrOfMessages = this->m_log.getNrOfMessages();
+	int nrOfMessages = this->m_dialogueObserver->getLogSize();
 	nrOfMessages > CAP ? CAP : nrOfMessages;
 
 	string print = "";
 	
 	for (int i = 0; i < nrOfMessages; i++)
 	{
-		print += this->m_log.getMessageAtLine(i);
+		print += this->m_dialogueObserver->getMessageAtLine(i);
 		print += "\n\n";
 
 	}
