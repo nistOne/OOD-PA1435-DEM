@@ -11,7 +11,7 @@ GameWindow::~GameWindow()
 	delete this->m_mapObserver;
 }
 
-Observer * GameWindow::getObserver()
+Observer * GameWindow::getMapObserver()
 {
 	return this->m_mapObserver;
 }

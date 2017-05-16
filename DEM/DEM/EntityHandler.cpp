@@ -24,7 +24,7 @@ void EntityHandler::initialize(Observer * dialogueObserver)
 	// EDIT!
 	Player* temp = dynamic_cast<Player*>(this->entitys[0]);
 
-	temp->setDialogueObserver(dialogueObserver);
+	temp->registerDialogueObserver(dialogueObserver);
 }
 
 void EntityHandler::addPlayer(std::string name)

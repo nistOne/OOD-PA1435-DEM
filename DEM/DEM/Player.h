@@ -1,11 +1,13 @@
 #pragma once
 #include "Entity.h"
 #include "InputObserver.h"
+#include "DialogueGrabber.h"
 
 class Player : public Entity
 {
 private:
 
+	DialogueGrabber* m_dialogueGrabber;
 	InputObserver* m_inputObserver;
 
 public:
@@ -17,5 +19,5 @@ public:
 	void update();
 
 	Observer* getInputObserver();
-	void setDialogueObserver(Observer* observer);
+	void registerDialogueObserver(Observer* observer);
 };

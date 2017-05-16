@@ -2,10 +2,12 @@
 
 Player::Player(int x, int y, int hitPoint, int strenght, std::string name) : Entity(x, y, hitPoint, strenght, name)
 {
+	this->m_dialogueGrabber = new DialogueGrabber;
 	this->m_inputObserver = new InputObserver;
 }
 Player::~Player()
 {
+	delete this->m_dialogueGrabber;
 	delete this->m_inputObserver;
 }
 void Player::move(sf::Vector2i dir)
@@ -44,9 +46,14 @@ void Player::update()
 	}
 }
 
-Observer * Player::getObserver()
+Observer * Player::getInputObserver()
 {
 	return this->m_inputObserver;
+}
+
+void Player::registerDialogueObserver(Observer * observer)
+{
+	this->m_dialogueGrabber->registerObserver(observer);
 }
 
 
