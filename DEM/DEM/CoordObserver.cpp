@@ -35,7 +35,7 @@ int CoordObserver::getSize()
 
 int CoordObserver::getIndex(sf::Vector2i pos)
 {
-	int index = -1;
+	int index = (-1);
 
 	int size = this->m_coords.size();
 

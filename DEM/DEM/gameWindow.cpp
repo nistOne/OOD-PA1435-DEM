@@ -40,8 +40,8 @@ void GameWindow::Render(sf::RenderWindow* window)
 	{
 		for (int j = 0; j < MAPWIDTH; j++)
 		{
-			entityIndex = this->m_coordObserver->getIndex(sf::Vector2i(i, j));
-			if (entityIndex = !- 1)
+			entityIndex = this->m_coordObserver->getIndex(sf::Vector2i(j, i));
+			if (entityIndex != (-1))
 				mapString += this->m_coordObserver->getIcon(entityIndex);
 			else
 				mapString += this->m_map[j][i];
