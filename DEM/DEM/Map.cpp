@@ -236,7 +236,7 @@ void Map::GenerateMap()
 
 sf::Vector2i Map::getSpawn()
 {
-	/*bool flag = false;
+	bool flag = false;
 	int xPos = 0;
 	int yPos = 0;
 	while (!flag)
@@ -245,19 +245,19 @@ sf::Vector2i Map::getSpawn()
 		yPos = (rand() % MAPHEIGHT - 7) + 7;
 		if (m_map[xPos][yPos] == 46)
 			flag = true;
-	}*/
+	}
 
-	for (int i = 0; i < MAPWIDTH; i++)
+	/*for (int i = 0; i < MAPWIDTH; i++)
 	{
 		for (int j = 0; j < MAPHEIGHT; j++)
 		{
 			if (m_map[i][j] == '.')
 				return sf::Vector2i{ i, j };
 		}
-	}
+	}*/
 
-	//return sf::Vector2i{xPos,yPos};
-	return sf::Vector2i{ 0, 0 };
+	return sf::Vector2i{xPos,yPos};
+	//return sf::Vector2i{ 0, 0 };
 }
 
 void Map::registerObserver(Observer * observer)

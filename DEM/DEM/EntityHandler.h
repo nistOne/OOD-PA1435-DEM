@@ -44,7 +44,7 @@ public:
 
 	void movePlayer()
 	{
-		this->entitys[0]->move();
+		this->entitys[this->getPlayerIndex()]->move();
 	}
 };
 
