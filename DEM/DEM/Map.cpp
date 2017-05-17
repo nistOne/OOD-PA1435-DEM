@@ -235,21 +235,19 @@ void Map::GenerateMap()
 	this->m_mapGrabber->setMap(this->m_map);
 }
 
-void Map::Print()
+sf::Vector2i Map::getSpawn()
 {
-	int j = 0;
-	for (int i = 0; i < 90; i++)
+	bool flag = false;
+	int xPos = 0;
+	int yPos = 0;
+	while (!flag)
 	{
-		cout << this->m_map[i][j];
-		if (i >= MAPWIDTH - 1)
-		{
-			i = 0;
-			j++;
-			cout << endl;
-			if (j >= MAPHEIGHT - 1)
-				i = MAPWIDTH;
-		}// if
-	}// for
+		xPos = (rand() % MAPWIDTH - 10) + 10;
+		yPos = (rand() % MAPHEIGHT - 7) + 7;
+		if (m_map[xPos][yPos] == 46)
+			flag = true;
+	}
+	return {xPos,yPos};
 }
 
 void Map::registerObserver(Observer * observer)
