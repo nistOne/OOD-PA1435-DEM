@@ -71,7 +71,10 @@ void EntityHandler::addPlayer(std::string name)
 	// Fix cap to avoid accessing undefined memory!
 	this->entitys[nrOfEntitys++] = new Player(45.0, 45.0, 100, 25, name);
 }
-
+void EntityHandler::addNPC(std::string name)
+{
+	this->entitys[nrOfEntitys++] = new NPC(45.0, 45.0, 50, 5, name);
+}
 bool EntityHandler::update()
 {
 	Entity* temp = nullptr;

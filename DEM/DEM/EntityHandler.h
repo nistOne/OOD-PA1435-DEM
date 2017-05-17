@@ -31,7 +31,7 @@ public:
 	void initialize(Observer* dialogueObserver);
 
 	void addPlayer(std::string name);
-	
+	void addNPC(std::string name);
 	bool update();
 	bool checkUnitCollision();
 	bool checkWallCollision(sf::Vector2i dir);
