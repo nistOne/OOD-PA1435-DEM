@@ -37,7 +37,9 @@ int CoordObserver::getIndex(sf::Vector2i pos)
 {
 	int index = -1;
 
-	for (int i = 0; i < this->m_coords.size() && index == -1; i++)
+	int size = this->m_coords.size();
+
+	for (int i = 0; i < size && index == -1; i++)
 	{
 		if (this->m_coords.at(i).pos == pos)
 		{

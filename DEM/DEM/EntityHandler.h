@@ -32,7 +32,7 @@ public:
 	~EntityHandler();
 	void attack(Entity* attacker, Entity* target);
 
-	void addPlayer(std::string name);
+	void addPlayer(std::string name, sf::Vector2i spawnPos);
 	
 	bool update();
 	int calcDamage(int strenght);

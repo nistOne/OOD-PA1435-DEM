@@ -37,9 +37,11 @@ bool EntityHandler::checkWallCollision()
 
 	if (map[entitys[playerIndex]->getTargetPos().x][entitys[playerIndex]->getTargetPos().y] == 35 ||
 		map[entitys[playerIndex]->getTargetPos().x][entitys[playerIndex]->getTargetPos().y] == 46)	// if target tile is floor
-		return true;
+	{
+		return false;
+	}
 
-	return false;
+	return true;
 }
 
 #include <time.h>
@@ -62,10 +64,11 @@ EntityHandler::~EntityHandler() {
 	delete this->m_dialogueGrabber;
 }
 
-void EntityHandler::addPlayer(std::string name)
+void EntityHandler::addPlayer(std::string name, sf::Vector2i spawnPos)
 {
 	// Fix cap to avoid accessing undefined memory!
-	this->entitys[this->nrOfEntitys++] = new Player(45.0, 45.0, 100, 25, name, this->ID_counter++);
+	this->entitys[this->nrOfEntitys++] = new Player(spawnPos.x, spawnPos.y, 100, 25, name, this->ID_counter++);
+	this->entitys[this->nrOfEntitys - 1]->move();
 }
 
 bool EntityHandler::update()
@@ -82,13 +85,13 @@ bool EntityHandler::update()
 
 	if (wantToMove(getPlayerIndex()))
 	{
-		if (checkWallCollision())
+		if (!checkWallCollision())
 		{
 			getEntityOnPos(entitys[getPlayerIndex()]->getTargetPos(), temp);
 			if (temp == nullptr)
 			{
 				entitys[getPlayerIndex()]->move();
-				entitys[getPlayerIndex()]->setTargetPos(entitys[getPlayerIndex()]->getTargetPos());
+				//entitys[getPlayerIndex()]->setTargetPos(entitys[getPlayerIndex()]->getTargetPos());
 			}
 			else
 			{
