@@ -10,28 +10,10 @@ using namespace std;
 
 int main()
 {
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
 	System system;
 	system.Run();
-
-	/*sf::Event event;
-	while (window.pollEvent(event))
-	{
-		switch (event.type) {
-
-		case sf::Event::KeyPressed:
-			if (event.key.code == sf::Keyboard::Up)
-			{
-				
-			}
-			else if (event.key.code == sf::Keyboard::Down)
-			{
-
-			}
-		default:
-			break;
-		}
-	}*/
 
 	return 0;
 }
