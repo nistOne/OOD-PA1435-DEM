@@ -41,6 +41,11 @@ public:
 	Observer* getInputObserver();
 	void registerDialogueObserver(Observer* dialogueObserver);
 	void registerCoordObserver(Observer* coordObserver);
+
+	void movePlayer()
+	{
+		this->entitys[0]->move();
+	}
 };
 
 #endif // !ENTITYHANDLER_H

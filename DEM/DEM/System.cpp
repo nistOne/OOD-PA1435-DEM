@@ -18,17 +18,18 @@ void System::Run()
 {
 	this->m_graphics.setRenderWindow(this->m_rWindow);
 	
-	this->m_entityHandler.addPlayer("Sanic", sf::Vector2i(30, 30));
-	
 	// Register observers.
 	this->m_map.registerObserver(this->m_entityHandler.getMapObserver());
 	this->m_map.registerObserver(this->m_graphics.getMapObserver());
 	this->m_map.GenerateMap();
 
+	this->m_entityHandler.addPlayer("Sanic", this->m_map.getSpawn());
+
 	this->m_entityHandler.registerCoordObserver(this->m_graphics.getCoordObserver());
 	this->m_entityHandler.registerDialogueObserver(this->m_graphics.getDialogueObserver());
 	this->m_inputGrabber->registerInputObserver(this->m_entityHandler.getInputObserver());
 
+	this->m_entityHandler.movePlayer();
 
 	// Game loop. Observ input later on.
 	while (this->m_rWindow->isOpen())

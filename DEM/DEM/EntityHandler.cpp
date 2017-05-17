@@ -68,7 +68,7 @@ void EntityHandler::addPlayer(std::string name, sf::Vector2i spawnPos)
 {
 	// Fix cap to avoid accessing undefined memory!
 	this->entitys[this->nrOfEntitys++] = new Player(spawnPos.x, spawnPos.y, 100, 25, name, this->ID_counter++);
-	this->entitys[this->nrOfEntitys - 1]->move();
+	//this->entitys[this->nrOfEntitys - 1]->move();
 }
 
 bool EntityHandler::update()

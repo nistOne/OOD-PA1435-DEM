@@ -2,6 +2,7 @@
 #define MAP_H
 #include "MapGrabber.h"
 #include "Constants.h"
+#include "SFML-2.4.2/include/SFML/Graphics.hpp"
 
 class Map
 {
@@ -17,6 +18,7 @@ public:
 	void Print();
 
 	void registerObserver(Observer * observer);
+	sf::Vector2i getSpawn();
 	void getMap(char map[MAPWIDTH][MAPHEIGHT]);
 };
 
