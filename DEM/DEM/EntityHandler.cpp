@@ -20,13 +20,17 @@ int EntityHandler::getPlayerIndex()
 	return -1;
 }
 
-void EntityHandler::getEntityOnPos(sf::Vector2i pos, Entity* entity)
+Entity* EntityHandler::getEntityOnPos(sf::Vector2i pos)
 {
-	for (int i = 0; i < nrOfEntitys && entity == nullptr; i++)
+	Entity* pReturn = nullptr;
+
+	for (int i = 0; i < nrOfEntitys && pReturn == nullptr; i++)
 	{
 		if (entitys[i]->getPos() == pos)
-			entity = entitys[i];
+			pReturn = entitys[i];
 	}
+
+	return pReturn;
 }
 
 bool EntityHandler::checkWallCollision()
@@ -71,6 +75,11 @@ void EntityHandler::addPlayer(std::string name, sf::Vector2i spawnPos)
 	//this->entitys[this->nrOfEntitys - 1]->move();
 }
 
+void EntityHandler::addNPC(std::string name, sf::Vector2i spawnPos)
+{
+	this->entitys[this->nrOfEntitys++] = new NPC(spawnPos.x, spawnPos.y, 75, 5, name, this->ID_counter++);
+}
+
 bool EntityHandler::update()
 {
 	int playerIndex = this->getPlayerIndex();
@@ -87,7 +96,7 @@ bool EntityHandler::update()
 	{
 		if (!checkWallCollision())
 		{
-			getEntityOnPos(entitys[getPlayerIndex()]->getTargetPos(), temp);
+			temp = getEntityOnPos(entitys[playerIndex]->getTargetPos());
 			if (temp == nullptr)
 			{
 				entitys[getPlayerIndex()]->move();
@@ -95,8 +104,10 @@ bool EntityHandler::update()
 			}
 			else
 			{
-				// fight?
+				// fight.
+				attack(entitys[playerIndex], getEntityOnPos(entitys[playerIndex]->getTargetPos()));
 			}
+			entitys[playerIndex]->setTargetPos(entitys[playerIndex]->getPos());
 		}
 	}
 	

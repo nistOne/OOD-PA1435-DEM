@@ -24,7 +24,7 @@ private:
 
 	bool wantToMove(int entityIndex);						// checks if the player pos = it's targeted pos
 	int getPlayerIndex();									// gets the index of the player in Entity**
-	void getEntityOnPos(sf::Vector2i pos, Entity* entity);	// checks if any entity is on target position
+	Entity* getEntityOnPos(sf::Vector2i pos);				// checks if any entity is on target position
 	bool checkWallCollision();
 
 public:
@@ -33,6 +33,7 @@ public:
 	void attack(Entity* attacker, Entity* target);
 
 	void addPlayer(std::string name, sf::Vector2i spawnPos);
+	void addNPC(std::string name, sf::Vector2i spawnPos);
 	
 	bool update();
 	int calcDamage(int strenght);
@@ -42,9 +43,10 @@ public:
 	void registerDialogueObserver(Observer* dialogueObserver);
 	void registerCoordObserver(Observer* coordObserver);
 
-	void movePlayer()
+	void updateEntities()
 	{
-		this->entitys[this->getPlayerIndex()]->move();
+		for(int i = 0; i < this->nrOfEntitys; i++)
+			this->entitys[i]->move();
 	}
 };
 

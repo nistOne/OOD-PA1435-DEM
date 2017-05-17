@@ -13,19 +13,19 @@ TextWindow::TextWindow() : Window()
 
 	this->m_text.setPosition(815, 50);
 
-	this->m_dialogueObserver->update("MONSTER", "You can run, but you can't hide!");
-	this->m_dialogueObserver->update("CHILD", "Lol fkn pleb.");
-	this->m_dialogueObserver->update("MONSTER", "LOL I GOT FKN REKT SON!");
-	this->m_dialogueObserver->update("Nist", "Neat.");
+	//this->m_dialogueObserver->update("MONSTER", "You can run, but you can't hide!");
+	//this->m_dialogueObserver->update("CHILD", "Lol fkn pleb.");
+	//this->m_dialogueObserver->update("MONSTER", "LOL I GOT FKN REKT SON!");
+	//this->m_dialogueObserver->update("Nist", "Neat.");
 
-	string lorem = "";
-	lorem += "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-	lorem += " Integer mauris est, ornare adipiscing elit.Integer mauris";
-	lorem += " est, ornare sagittis rutrum quis, semper a neque.Nunc in";
-	lorem += " vulputate nulla.Aliquam pretium varius luctus.Suspendisse";
-	lorem += " nisl magna, malesuada vel felis dictum, luctus aliquam velit.";
+	//string lorem = "";
+	//lorem += "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+	//lorem += " Integer mauris est, ornare adipiscing elit.Integer mauris";
+	//lorem += " est, ornare sagittis rutrum quis, semper a neque.Nunc in";
+	//lorem += " vulputate nulla.Aliquam pretium varius luctus.Suspendisse";
+	//lorem += " nisl magna, malesuada vel felis dictum, luctus aliquam velit.";
 
-	this->m_dialogueObserver->update("None", lorem);
+	//this->m_dialogueObserver->update("None", lorem);
 
 }
 

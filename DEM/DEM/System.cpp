@@ -24,12 +24,14 @@ void System::Run()
 	this->m_map.GenerateMap();
 
 	this->m_entityHandler.addPlayer("Sanic", this->m_map.getSpawn());
+	this->m_entityHandler.addNPC("Noob1", this->m_map.getSpawn());
+	this->m_entityHandler.addNPC("Noob2", this->m_map.getSpawn());
 
 	this->m_entityHandler.registerCoordObserver(this->m_graphics.getCoordObserver());
 	this->m_entityHandler.registerDialogueObserver(this->m_graphics.getDialogueObserver());
 	this->m_inputGrabber->registerInputObserver(this->m_entityHandler.getInputObserver());
 
-	this->m_entityHandler.movePlayer();
+	this->m_entityHandler.updateEntities();
 
 	// Game loop. Observ input later on.
 	while (this->m_rWindow->isOpen())
