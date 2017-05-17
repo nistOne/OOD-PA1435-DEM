@@ -17,7 +17,7 @@ int EntityHandler::getPlayerIndex()
 			return i;
 		}
 	}
-	/// error ? ? ? 
+	return -1;
 }
 
 void EntityHandler::getEntityOnPos(sf::Vector2i pos, Entity* entity)
@@ -46,6 +46,8 @@ bool EntityHandler::checkWallCollision()
 EntityHandler::EntityHandler()
 {
 	entitys = new Entity*[10];
+	this->nrOfEntitys = 0;
+	this->ID_counter = 0;
 
 	this->m_mapObserver = new MapObserver();
 	this->m_dialogueGrabber = new DialogueGrabber();
@@ -63,7 +65,7 @@ EntityHandler::~EntityHandler() {
 void EntityHandler::addPlayer(std::string name)
 {
 	// Fix cap to avoid accessing undefined memory!
-	this->entitys[nrOfEntitys++] = new Player(45.0, 45.0, 100, 25, name);
+	this->entitys[this->nrOfEntitys++] = new Player(45.0, 45.0, 100, 25, name, this->ID_counter++);
 }
 
 bool EntityHandler::update()
@@ -141,4 +143,12 @@ Observer * EntityHandler::getInputObserver()
 void EntityHandler::registerDialogueObserver(Observer * dialogueObserver)
 {
 	this->m_dialogueGrabber->registerInputObserver(dialogueObserver);
+}
+
+void EntityHandler::registerCoordObserver(Observer * coordObserver)
+{
+	for (int i = 0; i < this->nrOfEntitys; i++)
+	{
+		this->entitys[i]->registerCoordObserver(coordObserver);
+	}
 }

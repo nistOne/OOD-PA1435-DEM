@@ -11,9 +11,8 @@ private:
 
 public:
 
-	Player(int x, int y, int hitPoint, int strenght, std::string name);
+	Player(int x, int y, int hitPoint, int strenght, std::string name, int ID);
 	~Player();
-	void move();
 
 	void update();
 

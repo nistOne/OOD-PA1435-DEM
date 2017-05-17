@@ -6,7 +6,6 @@ class NPC : public Entity
 private:
 
 public:
-	NPC(float x, float y, int hitPoint, int strenght, std::string name);
+	NPC(float x, float y, int hitPoint, int strenght, std::string name, int ID);
 	~NPC();
-	void move(float x, float y);
 };

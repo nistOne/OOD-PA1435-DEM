@@ -15,6 +15,7 @@ class EntityHandler
 private:
 	Entity** entitys;
 	int nrOfEntitys;
+	int ID_counter;
 
 	MapObserver* m_mapObserver;
 	DialogueGrabber* m_dialogueGrabber;
@@ -39,6 +40,7 @@ public:
 	Observer* getMapObserver();
 	Observer* getInputObserver();
 	void registerDialogueObserver(Observer* dialogueObserver);
+	void registerCoordObserver(Observer* coordObserver);
 };
 
 #endif // !ENTITYHANDLER_H

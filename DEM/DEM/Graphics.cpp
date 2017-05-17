@@ -23,6 +23,11 @@ Observer * Graphics::getDialogueObserver()
 	return this->m_textWindow.getDialoueObserver();
 }
 
+Observer * Graphics::getCoordObserver()
+{
+	return this->m_gameWindow.getCoordObserver();
+}
+
 void Graphics::setRenderWindow(sf::RenderWindow* renderWindow)
 {
 	this->m_window = renderWindow;

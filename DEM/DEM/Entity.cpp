@@ -9,7 +9,7 @@ Entity::Entity()
 	pos.y = 0;
 }
 
-Entity::Entity(int x, int y, int hitPoint, int strenght, std::string name)
+Entity::Entity(int x, int y, int hitPoint, int strenght, std::string name, int ID)
 {
 	this->hitPoint = hitPoint;
 	this->strenght = strenght;
@@ -18,11 +18,15 @@ Entity::Entity(int x, int y, int hitPoint, int strenght, std::string name)
 	pos.y = y;
 	targetPos.x = x;
 	targetPos.y = y;
+
+	this->ID = ID;
+
+	this->m_coordGrabber = new CoordGrabber();
 }
 
 Entity::~Entity()
 {
-
+	delete this->m_coordGrabber;
 }
 
 float Entity::getStrength()const
@@ -37,11 +41,16 @@ std::string Entity::getName()const
 {
 	return this->name;
 }
-bool Entity::update()
-{
-	// EDIT
 
-	return false;
+void Entity::move()
+{
+	this->pos = this->targetPos;
+	this->m_coordGrabber->setCoord(this->ID, this->pos, this->icon);
+}
+
+void Entity::registerCoordObserver(Observer * coordObserver)
+{
+	this->m_coordGrabber->registerInputObserver(coordObserver);
 }
 
 sf::Vector2i Entity::getPos()const
